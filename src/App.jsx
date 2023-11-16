@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react"
+import MainBody from "./components/Main-products"
+import { products } from "./products"
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const [productsData, setProductsData] = React.useState(products)
+
+    // const [product, setProduct] = React.useState({
+    //     id: "",
+    //     image: "",
+    //     name: "",
+    //     rating: 0,
+    //     priceCents: 0,
+    //     keywords: []
+    // })
+
+    // setProductsData(productsData.map((item) => {
+    //     setProduct()
+    // }))
+
+    const productGrid = products.map(product => {
+        <MainBody 
+            key={product.id}
+            name={product.name}
+            image={product.image}
+            priceCents={product.priceCents}
+        />
+    })
+
+    // map each product to the product component, this will pass the data
+    // as props, for the cart will check if an id is in the cart if not
+    // add, this will be done with a click function in each product button
+
+    return (
+        <main>
+            {productGrid}
+        </main>
+    )
 }
-
-export default App
