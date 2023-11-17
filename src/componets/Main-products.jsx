@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 export default function MainBody(props) {
 
     return (
-        <section>
 
             <div className="product--card">
                 <div className="product--image--container">
@@ -14,11 +13,10 @@ export default function MainBody(props) {
                 <p>{props.priceCents}</p>
 
                 <button 
-                    onClick={()=>props.handleClick(props.id, props.name)}>
+                    onClick={()=>props.handleClick(props.id, props.name, props.priceCents)}>
                     Add to cart
                 </button>
             </div>
-        </section>
     )
 }
 

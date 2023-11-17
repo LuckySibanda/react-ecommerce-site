@@ -1,43 +1,22 @@
 import React from "react"
 import MainBody from "./componets/Main-products"
 import { products } from "./products"
+import Header from "./componets/Header"
 
 export default function App() {
 
     const [productsData, setProductsData] = React.useState(products)
-
-    // console.log(productsData)
-
-    // const [product, setProduct] = React.useState({
-    //     id: "",
-    //     image: "",
-    //     name: "",
-    //     rating: 0,
-    //     priceCents: 0,
-    //     keywords: []
-    // })
-
-    // setProductsData(productsData.map((item) => {
-    //     setProduct()
-    // }))
 
 
     // map each product to the product component, this will pass the data
     // as props, for the cart will check if an id is in the cart if not
     // add, this will be done with a click function in each product button
 
-
-    // check if the product
-
-    // const [cartItem, setCartItem] = React.useState({
-    //     id: "",
-    //     name: ""
-    // })
-
     const [cart, setCart] = React.useState([])
     const [cartCount, setCartCounter] = React.useState(0)
+    const [cartAmount, setCartAmount] = React.useState(0)
 
-    function addToCart(id, name) {
+    function addToCart(id, name, priceCents) {
         // console.log(id)
         let matchingItem;
 
@@ -63,11 +42,13 @@ export default function App() {
         }
 
         setCartCounter(prevCount => prevCount + 1)
+
+        setCartAmount(prevAmount => prevAmount + priceCents)
     }
 
     // console.log(cartCount)
     // console.log(cart)
-    console.log('rendered')
+    console.log(cartAmount)
 
     const productGrid = productsData.map(item => (
         <MainBody 
@@ -75,14 +56,20 @@ export default function App() {
             id={item.id}
             name={item.name}
             image={item.image}
-            priceCents={item.priceCents}
+            priceCents={item.priceCents /10}
             handleClick={addToCart}
             />
     ))
 
     return (
         <main>
-            {productGrid}
+            <Header
+                cartCounter={cartCount}
+                />
+                
+            <section className="product--grid">
+                {productGrid}
+            </section>
         </main>
     )
 }

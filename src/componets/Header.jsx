@@ -1,6 +1,7 @@
 // import React from "react";
+import PropTypes from 'prop-types'
 
-export default function Header() {
+export default function Header(props) {
 
 
     return (
@@ -16,7 +17,7 @@ export default function Header() {
                     placeholder="Search"
                 />
                 <div className="search--icon">
-                    <img src="./vite.svg" alt="" />
+                    {/* <img src="./vite.svg" alt="" /> */}
                     {/* replace with search icon */}
                 </div>
             </form>
@@ -30,10 +31,14 @@ export default function Header() {
 
                 <div className="header--cart--container">
                     {/* insert cart icon */}
-                    <span className="cart--counter">0</span>
+                    <span className="cart--counter">{props.cartCounter}</span>
                     <p className="to--cart--button">Cart</p>
                 </div>
             </div>
         </header>
     )
+}
+
+Header.propTypes = {
+    cartCounter: PropTypes.number.isRequired,
 }
