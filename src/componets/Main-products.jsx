@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 
 export default function MainBody(props) {
 
-    
-
     return (
         <section>
 
@@ -13,13 +11,20 @@ export default function MainBody(props) {
                     <img src={props.image} alt="" />
                 </div>
                 <p>{props.name}</p>
+                <p>{props.priceCents}</p>
+
+                <button 
+                    onClick={()=>props.handleClick(props.id, props.name)}>
+                    Add to cart
+                </button>
             </div>
-            
         </section>
     )
 }
 
-MainBody.PropTypes = {
+MainBody.propTypes = {
+    handleClick: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     priceCents: PropTypes.number.isRequired,
