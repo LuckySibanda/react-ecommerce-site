@@ -2,6 +2,7 @@ import React from "react"
 import MainBody from "./componets/Main-products"
 import { products } from "./products"
 import Header from "./componets/Header"
+// import Cart from "./componets/Cart"
 
 export default function App() {
 
@@ -47,8 +48,8 @@ export default function App() {
     }
 
     // console.log(cartCount)
-    // console.log(cart)
-    console.log(cartAmount)
+    // console.log(typeof(cart))
+    // console.log(cartAmount)
 
     const productGrid = productsData.map(item => (
         <MainBody 
@@ -64,12 +65,17 @@ export default function App() {
     return (
         <main>
             <Header
-                cartCounter={cartCount}
+                cartArray={cart}
+                cartAmount={cartAmount}
+                cartCount={cartCount}
+                // carty={cartColumn}
                 />
-                
+            {/* {cart} */}
             <section className="product--grid">
                 {productGrid}
             </section>
+
+            
         </main>
     )
 }

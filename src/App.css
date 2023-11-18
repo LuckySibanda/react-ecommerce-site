@@ -24,3 +24,11 @@ button {
 img {
 	width: 50%;
 }
+
+.cart {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	transform: translate(-45%);
+	overflow: hidden;
+}

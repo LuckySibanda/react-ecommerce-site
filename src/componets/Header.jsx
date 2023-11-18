@@ -1,9 +1,17 @@
-// import React from "react";
+import React from "react";
 import PropTypes from 'prop-types'
 
 export default function Header(props) {
 
+    const [open, setOpen] = React.useState(false)
 
+    function showCart() {
+        setOpen(prevState => prevState = !prevState)
+    }
+    // function decon() {
+    //     console.log(props.cartArray)
+    //     // return props.cartArray
+    // }
     return (
         <header>
             <div className="logo--container">
@@ -22,23 +30,40 @@ export default function Header(props) {
                 </div>
             </form>
 
-            <div className="header--cart--buttons">
-                <p>Returns 
-                    <span>& Orders
-                        {/* make bold and on new line, see em */}
-                    </span>
-                </p>
+            <button onClick={showCart}>Cart</button>
 
-                <div className="header--cart--container">
-                    {/* insert cart icon */}
-                    <span className="cart--counter">{props.cartCounter}</span>
-                    <p className="to--cart--button">Cart</p>
+            {/* {open && <div className="cart">
+                <div>{props.cartCount} {props.cartAmount}</div>
+                <div className="cart--propducts">
+                    {props.cartArray}
                 </div>
-            </div>
+            </div>} */}
+
+            {open && <div className="cart">
+                <div>{props.cartCount} {props.cartAmount}</div>
+                <div className="cart--propducts">
+                    {props.cartArray.map((item) => (
+                        <div key={item.productId}>
+                            {item.productName} {item.quantity}
+                        </div>
+                    ))}
+                </div>
+            </div>}
         </header>
     )
 }
 
+
+
 Header.propTypes = {
-    cartCounter: PropTypes.number.isRequired,
-}
+    cartCount: PropTypes.number.isRequired,
+    cartAmount: PropTypes.number.isRequired,
+    cartArray: PropTypes.arrayOf(
+        PropTypes.shape({
+            productId: PropTypes.string.isRequired,
+            productName: PropTypes.string.isRequired,
+            quantity: PropTypes.number.isRequired,
+        })
+    ).isRequired,
+    // carty: PropTypes.object.isRequired,
+};
