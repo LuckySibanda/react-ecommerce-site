@@ -6,15 +6,19 @@ export default function MainBody(props) {
     return (
 
             <div className="product--card">
-                <div className="product--image--container">
-                    <img src={props.image} alt="" />
+                <div onClick={props.handleProductClick}className="product--image--container">
+                    <img onClick={props.handleProductClick} src={props.image} alt="" />
                 </div>
-                <p>{props.name}</p>
+                <p onClick={props.handleProductClick}>{props.name}</p>
                 <p>{props.priceCents}</p>
 
                 <button 
                     onClick={()=>props.handleClick(props.id, props.name, props.priceCents)}>
                     Add to cart
+                </button>
+
+                <button 
+                    onClick={()=>props.wishlistClick(props.id, props.name, props.priceCents)}>Add to Wishlist
                 </button>
             </div>
     )
@@ -22,6 +26,9 @@ export default function MainBody(props) {
 
 MainBody.propTypes = {
     handleClick: PropTypes.func.isRequired,
+    wishlistClick: PropTypes.func.isRequired,
+    handleProductClick: PropTypes.func.isRequired,
+
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,

@@ -25,9 +25,25 @@ img {
 	width: 50%;
 }
 
+h3 {
+	display: inline-block;
+}
+
+h4 {
+	display: inline-block;
+}
+
 .cart {
 	position: absolute;
 	right: 10px;
+	top: 10px;
+	transform: translate(-45%);
+	overflow: hidden;
+}
+
+.wishlist {
+	position: absolute;
+	right: 50%;
 	top: 10px;
 	transform: translate(-45%);
 	overflow: hidden;
