@@ -12,7 +12,7 @@ export default function MainBody(props) {
 
                     <img onClick={()=>props.handleProductClick(
             props.name, props.priceCents, props.image)} 
-             src={props.image} alt="" />
+             src={props.image} className="product--image" alt="" />
                 </div>
                 <p onClick={()=>props.handleProductClick(
             props.name, props.priceCents, props.image)} >

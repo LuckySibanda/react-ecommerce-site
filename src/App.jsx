@@ -219,14 +219,15 @@ export default function App() {
                 searchSubmit={formSubmit}
                 />
 
-            {
-                showProductPage && <ProductPage 
+
+
+
+            {   showProductPage && <ProductPage 
                 name={product.productName}
                 image={product.productImage}
                 price={product.productPrice}
                 showProd={setShowProduct}
-            />
-            }
+            />}
 
             
             {submitted === true ? 
