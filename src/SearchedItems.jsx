@@ -5,12 +5,25 @@ export default function SearchResults(props) {
 
 
     return (
-        <div onClick={props.handleProductClick} className="product--card">
-            <div onClick={props.handleProductClick} className="product--image--container">
-                <img onClick={props.handleProductClick} 
+        <div onClick={()=>props.handleProductClick(
+            props.name, props.priceCents, props.image)} 
+        
+        
+        className="product--card">
+            <div onClick={()=>props.handleProductClick(
+            props.name, props.priceCents, props.image)} 
+            className="product--image--container">
+                <img onClick={()=>props.handleProductClick(
+            props.name, props.priceCents, props.image
+            )}
                 src={props.image} alt="" />
             </div>
-            <p onClick={props.handleProductClick}>{props.name}</p>
+
+            <p onClick={()=>props.handleProductClick(
+            props.name, props.priceCents, props.image
+            )}>
+            {props.name}</p>
+
             <p>{props.priceCents}</p>
 
             <button 

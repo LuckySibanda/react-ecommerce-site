@@ -6,10 +6,17 @@ export default function MainBody(props) {
     return (
 
             <div className="product--card">
-                <div onClick={props.handleProductClick}className="product--image--container">
-                    <img onClick={props.handleProductClick} src={props.image} alt="" />
+                <div onClick={()=>props.handleProductClick(
+            props.name, props.priceCents, props.image)} 
+             className="product--image--container">
+
+                    <img onClick={()=>props.handleProductClick(
+            props.name, props.priceCents, props.image)} 
+             src={props.image} alt="" />
                 </div>
-                <p onClick={props.handleProductClick}>{props.name}</p>
+                <p onClick={()=>props.handleProductClick(
+            props.name, props.priceCents, props.image)} >
+                {props.name}</p>
                 <p>{props.priceCents}</p>
 
                 <button 

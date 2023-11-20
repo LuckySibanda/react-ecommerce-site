@@ -3,6 +3,7 @@ import MainBody from "./componets/Main-products"
 import { products } from "./products"
 import Header from "./componets/Header"
 import SearchResults from "./SearchedItems"
+import ProductPage from "./componets/Product-page"
 // import Cart from "./componets/Cart"
 
 export default function App() {
@@ -17,11 +18,25 @@ export default function App() {
 
     const [wishlist, setWishlist] = React.useState([])
 
-    const [product, setProduct] = React.useState()
+    const [product, setProduct] = React.useState({
+        productImage: "",
+        productName: "",
+        productPrice: 0
+    })
 
-    function showProduct() {
-        console.log('not needed')
+    const [showProductPage, setShowProduct] = React.useState(false)
+
+    function showProduct(name, image, priceCents) {
+        setProduct({
+            productImage: image,
+            productName: name,
+            ProductPrice: priceCents
+        })
+
+        setShowProduct(true)
     }
+
+    console.log(showProductPage)
 
     // Add to cart function
     function addToCart(id, name, priceCents) {
@@ -204,6 +219,16 @@ export default function App() {
                 searchSubmit={formSubmit}
                 />
 
+            {
+                showProductPage && <ProductPage 
+                name={product.productName}
+                image={product.productImage}
+                price={product.productPrice}
+                showProd={setShowProduct}
+            />
+            }
+
+            
             {submitted === true ? 
             <div className="product--grid">
                 <button onClick={()=>setSubmitted(false)}>End Search</button>
@@ -213,6 +238,8 @@ export default function App() {
             <section className="product--grid">
                 {productGrid}
             </section>}
+
+            
             
         </main>
     )
