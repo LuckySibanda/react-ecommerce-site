@@ -10,63 +10,259 @@
 * {
 	margin : 0;
 	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
-.cart {
-	position: absolute;
-	right: 10px;
-	top: 10px;
-	transform: translate(-45%);
-	overflow: hidden;
+body {
+	height: 100vh;
 }
 
-.wishlist {
-	position: absolute;
-	right: 50%;
-	top: 10px;
-	transform: translate(-45%);	
-	overflow: hidden;
+button {
+	cursor: pointer;
 }
+
 
 header {
+	/* position: absolute; */
 	background-color: var(--clr-bold-blue);
 	color: var(--primary-font);
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
+
+	width: 100%;
+	height: 5rem;
+
+	/* position: fixed; */
+	z-index: 10;
 }
 
+
+
+
+
+.cart {
+	background-color: var(--clr-bold-blue);
+	position: absolute;
+	/* right: 10px; */
+	/* margin: 2%; */
+	padding: 1rem 0 1rem 1rem;
+	left: 2rem;
+	top: 8rem;
+	width: 95%;
+	height: 100%;
+	/* transform: translate(-45%); */
+	overflow: hidden;
+
+	border: none;
+	border-radius: 0.6rem;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.cart--product--list {
+	display: flex;
+	flex-direction: column;
+}
+
+.cart--product--card {
+	display: flex;
+	flex-direction: row;
+	background-color: var(--clr-white-primary);
+	color: #000;
+	height: 1rem;
+}
+
+
+
+
+
+.logo--container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 15%;
+	font-size: 25px;
+}
+
+form {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+
+	width: 50%;
+	font-size: 16px;
+}
+
+.search--product--input {
+	width: 70%;
+	height: 2.5em;
+	padding-left: 10px;
+}
+
+form > button {
+	width: 7rem;
+	height: 2.3rem;
+	margin-left: 20px;
+
+	background-color: var(--clr-sky-blue);
+	font-size: 16px;
+
+	border: none;
+	border-radius: 0.2rem;
+}
+
+.toggle--buttons {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	
+	width: 15%;
+}
+
+.toggle--buttons > button {
+	width: 7rem;
+	height: 2.3rem;
+	margin-right: 20px;
+}
+
+.cart--button {
+	background-color: var(--clr-cherry-red);
+	color: var(--primary-font);
+	font-size: 16px;
+
+	border: none;
+	border-radius: 0.3rem;
+}
+
+.wishlist--button {
+	background-color: var(--clr-sky-blue);
+	font-size: 16px;
+
+	border: none;
+	border-radius: 0.2rem;
+}
+
+
 .product--grid {
+	background-color: var(--clr-white-primary);
+	/* position: relative; */
+
 	display: grid;
-	grid-template-columns: repeat(4, 250px);
+	grid-template-columns: repeat(4, 18em);
 	gap: 20px;
 	justify-content: center;
 	align-items: center;
-	margin: 0 auto;
+	margin: 3rem auto;
 }
 
+
+
 .product--card {
-	background-color: aquamarine;
+	background-color: var(--primary-font);
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
-	justify-content: center;
-	align-items: center;
+	/* justify-content: center; */
+	/* align-items: center; */
 
-	width: 250px;
-	height: 350px;
+	width: 100%;
+	height: 24em;
+
+	border: 1px solid black;
+	border-radius: 5px;
 }
 
 .product--image--container {
+	display: flex;
+	margin: 10px auto;
 	width: 100%;
-	height: 200px;
+	height: 13em;
 }
 
 .product--image {
 	display: flex;
 	width: 80%;
-	height: 200px;
+	height: auto;
 	object-fit: contain;
-
 	margin: 0 auto;
+}
+
+.product--information {
+	display: flex;
+	flex-direction: column;
+	height: 5em;
+	align-items: flex-start;
+	padding: 2px 10px;
+}
+
+.product--name {
+	font-size: 1.2rem;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	height: 2em;
+}
+
+.product--price {
+	margin: 10px 0;
+	font-weight: 600;
+}
+
+.action--buttons {
+	margin: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.addToCart {
+	background-color: var(--clr-bold-blue);
+	/* background-color: lime; */
+	color: #fff;
+	border: none;
+	border-radius: 0.2em;
+	width: 6rem;
+	padding: 0.5rem;
+}
+
+.addtowishlist {
+	background-color: var(--clr-water-blue);
+	/* background-color: lime; */
+	color: #fff;
+	border: none;
+	border-radius: 0.2em;
+	width: 4rem;
+	padding: 0.5rem;
+}
+
+
+@media(max-width: 500px) {
+	.product--grid {
+		grid-template-columns: 1fr 1fr;
+		gap: 30px 5px;
+		margin: 0 auto;
+		width: 90%;
+	}
+
+	.product--name {
+		height: auto;
+	}
+
+	.action--buttons {
+		margin-top: 20px;
+	}
+
+	.addToCart {
+		width: 4.5rem;
+		padding: 0.2rem;
+	}
+
+	.addtowishlist {
+		padding: 0.4rem;
+	}
 }
