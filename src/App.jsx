@@ -39,7 +39,7 @@ export default function App() {
     console.log(showProductPage)
 
     // Add to cart function
-    function addToCart(id, name, priceCents) {
+    function addToCart(id, name, priceCents, image) {
         // console.log(id)
         let matchingItem;
 
@@ -59,7 +59,8 @@ export default function App() {
                 productId:id, 
                 quantity: 1, 
                 productName: name, 
-                productPrice: priceCents
+                productPrice: priceCents,
+                productImage: image
                 }, ...prevCart])
         }
 
@@ -73,7 +74,7 @@ export default function App() {
 
     
     // Add to wishlist function
-    function addToWishlist(id, name, priceCents) {
+    function addToWishlist(id, name, priceCents, image) {
         // console.log(id)
         let matchingItem;
 
@@ -93,7 +94,8 @@ export default function App() {
             setWishlist(prevWishlist => [{
                 productId:id, 
                 productName: name, 
-                productPrice: priceCents
+                productPrice: priceCents,
+                productImage: image
                 }, ...prevWishlist])
         }
     }

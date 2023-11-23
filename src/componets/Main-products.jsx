@@ -34,16 +34,19 @@ export default function MainBody(props) {
             <div className="action--buttons">
                 <button className="addToCart"
                     onClick={() =>
-                        props.handleClick(props.id, props.name, props.priceCents)}>
+                        props.handleClick(props.id, props.name, props.priceCents, props.image)}>
                     
                     Add to cart
                 </button>
 
                 <button className="addtowishlist"
                     onClick={() =>
-                        props.wishlistClick(props.id, props.name, props.priceCents)}>
+                        props.wishlistClick(props.id, props.name, props.priceCents, props.image)}>
                     
-                    Wishlist
+                    {/* Wishlist */}
+                    <span className="material-icons wishlist-icon">
+                    favorite_border
+                    </span>
                 </button>
             </div>
 
