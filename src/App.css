@@ -123,6 +123,9 @@ header > h5 {
 	z-index: 999; 
   }
 
+
+
+
 @media (max-width: 500px) {
 	.cart {
 		top: 1rem;
@@ -449,4 +452,55 @@ form {
 	.addtowishlist {
 		padding: 0.4rem;
 	}
+}
+
+.product--page {
+	position: absolute;
+	top: 1rem;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow-y: auto;
+	padding: 0.5rem;
+	/* width: 35%; */
+	height: 100%;
+	color: black;
+	background-color: #fff;
+	box-shadow: 10px 10px 500px rgba(0, 0, 0, 100);
+	z-index: 999; 
+
+	display: flex;
+	flex-direction: column;
+}
+
+.product--head {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	height: 2rem;
+	margin-bottom: 2rem;
+}
+
+.product--specifics {
+	display: flex;
+	flex-direction: row;
+	height: 70%;
+}
+
+.product--page--information {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.prod--image--container {
+	display: flex;
+	margin: auto;
+	width: 50%;
+}
+
+.prod--image--container > img {
+	object-fit: contain;
+	width: 100%;
 }

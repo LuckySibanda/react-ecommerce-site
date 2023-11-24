@@ -17,10 +17,8 @@ export default function Header(props) {
     <header>
       <div className="logo--container">
         {/* replace with image */}
-        
-        <span className="material-icons business--logo">
-        shopping_cart
-        </span>
+
+        <span className="material-icons business--logo">shopping_cart</span>
         <h5>Shop.com</h5>
       </div>
 
@@ -41,9 +39,7 @@ export default function Header(props) {
 
         {/* Search submit button */}
         <button className="search--button">
-        <span className="material-icons">
-        search
-        </span>
+          <span className="material-icons">search</span>
         </button>
       </form>
 
@@ -51,17 +47,13 @@ export default function Header(props) {
         {/* toggles cart */}
         <button className="cart--button" onClick={showCart}>
           {/* Cart */}
-          <span className="material-icons">
-            local_mall
-        </span>
+          <span className="material-icons">local_mall</span>
         </button>
 
         {/* toggles wishlist */}
         <button className="wishlist--button" onClick={showWishlist}>
           {/* Wishlist */}
-            <span className="material-icons">
-            favorite_border
-            </span>
+          <span className="material-icons">favorite_border</span>
         </button>
       </div>
 
@@ -73,9 +65,7 @@ export default function Header(props) {
           <div className="wishlist--header">
             <h3>Wishlist</h3>
             <button className="close--button" onClick={showWishlist}>
-            <span className="material-icons">
-                close
-            </span>
+              <span className="material-icons">close</span>
             </button>
           </div>
           <div className="wishlist--product--list">
@@ -97,7 +87,7 @@ export default function Header(props) {
 
       {/* FOR CART */}
 
-                {/* {props.cartCount === 0 ? <div className="no--cart--items">
+      {/* {props.cartCount === 0 ? <div className="no--cart--items">
                     <h2>You have nothing in your cart</h2>
                     <button onClick={showCart}>Continue Shopping</button>
                 </div>} */}
@@ -108,47 +98,42 @@ export default function Header(props) {
             <div className="cart--header--text">Cart</div>
             <div>
               <button className="close--button" onClick={showCart}>
-                <span className="material-icons">
-                    close
-                </span>
+                <span className="material-icons">close</span>
               </button>
             </div>
           </div>
-          <div className="cart--count">
-            {props.cartCount} Items
-          </div>
+          <div className="cart--count">{props.cartCount} Items</div>
 
           <div className="cart--product--list">
             {props.cartArray.map((item) => (
-                <>
+              <div key={item.productId}>
                 <div className="product--header">Item is available</div>
-              <div className="cart--product--card" key={item.productId}>
-				<div className="cart--product--image--container">
-					<img src={item.productImage} alt="" />
-				</div>
-                <div className="cart--product--information">
+                <div className="cart--product--card">
+                  <div className="cart--product--image--container">
+                    <img src={item.productImage} alt="" />
+                  </div>
+                  <div className="cart--product--information">
                     <div className="cart--product--name">
-                        {item.productName}
+                      {item.productName}
                     </div>
 
                     <div className="cart--product--quantity">
-                        Item {item.quantity}
+                      Item {item.quantity}
                     </div>
+                  </div>
                 </div>
               </div>
-              </>
             ))}
           </div>
 
-                <hr />
-            <div className='display--cart--total'>
-              <span>Total ({props.cartCount})</span> <span>{props.cartAmount}</span>
-            </div>
-            <div className="checkout">
-                <button className="checkout--button">
-                    Checkout
-                </button>
-            </div>
+          <hr />
+          <div className="display--cart--total">
+            <span>Total ({props.cartCount})</span>{" "}
+            <span>{props.cartAmount}</span>
+          </div>
+          <div className="checkout">
+            <button className="checkout--button">Checkout</button>
+          </div>
         </div>
       )}
     </header>
@@ -177,7 +162,7 @@ Header.propTypes = {
       productId: PropTypes.string.isRequired,
       productName: PropTypes.string.isRequired,
       productPrice: PropTypes.number.isRequired,
-		productImage: PropTypes.string.isRequired,
+      productImage: PropTypes.string.isRequired,
     })
   ).isRequired,
 };

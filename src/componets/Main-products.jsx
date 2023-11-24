@@ -7,11 +7,11 @@ export default function MainBody(props) {
 
             <div className="product--image--container"
                 onClick={() =>
-                    props.handleProductClick(props.name, props.priceCents, props.image)}>
+                    props.handleProductClick(props.name, props.image, props.priceCents, props.id)}>
 
                 <img className="product--image"
                     onClick={() =>
-                        props.handleProductClick(props.name, props.priceCents, props.image)}
+                        props.handleProductClick}
                     src={props.image}
                     alt="Image of product"/>
             </div>
@@ -21,7 +21,7 @@ export default function MainBody(props) {
 
                 <div className="product--name" 
                     onClick={() =>
-                        props.handleProductClick(props.name, props.priceCents, props.image)}>
+                        props.handleProductClick(props.name, props.image, props.priceCents, props.id)}>
                     {props.name}
                 </div>
 

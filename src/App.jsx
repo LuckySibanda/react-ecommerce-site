@@ -18,25 +18,50 @@ export default function App() {
 
     const [wishlist, setWishlist] = React.useState([])
 
-    const [product, setProduct] = React.useState({
-        productImage: "",
-        productName: "",
-        productPrice: 0
+    const [productToShow, setProductToShow] = React.useState({
+        prodName: "",
+        prodImage: "",
+        prodPrice: 0,
+        prodId: ""
     })
 
-    const [showProductPage, setShowProduct] = React.useState(false)
+    const [showProductPageBool, setShowProduct] = React.useState(false)
 
-    function showProduct(name, image, priceCents) {
-        setProduct({
-            productImage: image,
-            productName: name,
-            ProductPrice: priceCents
+    function showProd(name, image, priceCents, id) {
+        setProductToShow({
+            prodName: name,
+            prodImage: image,
+            prodPrice: priceCents,
+            prodId: id
         })
-
         setShowProduct(true)
     }
 
-    console.log(showProductPage)
+    // const [product, setProduct] = React.useState({
+    //     productName: "",
+    //     productPrice: 0,
+    //     productImage: ""
+        
+    // })
+
+    // const [showProductPage, setShowProduct] = React.useState(false)
+
+    // function showProduct(name, priceCents, image) {
+    //     setProduct({
+    //         productName: name,
+    //         productPrice: priceCents,
+    //         productImage: image
+
+            
+            
+    //     })
+    //     // console.log(name, priceCents, image, 'func')
+
+    //     setShowProduct(true)
+    // }
+    // // console.log(product)
+
+    // // console.log(showProductPage)
 
     // Add to cart function
     function addToCart(id, name, priceCents, image) {
@@ -68,8 +93,6 @@ export default function App() {
 
         setCartAmount(prevAmount => prevAmount + priceCents)
     }
-
-
 
 
     
@@ -111,11 +134,11 @@ export default function App() {
             id={item.id}
             name={item.name}
             image={item.image}
-            priceCents={item.priceCents /10}
+            priceCents={item.priceCents}
             // passes the 2 add functions as props to each product card
             handleClick={addToCart}
             wishlistClick={addToWishlist}
-            handleProductClick={showProduct}
+            handleProductClick={showProd}
             />
     ))
 
@@ -200,11 +223,11 @@ export default function App() {
             handleClick={addToCart}
             wishlistClick={addToWishlist}
 
-            handleProductClick={showProduct}
+            handleProductClick={showProd}
         />
     ))
 
-
+    
 
     // finally the return, puts everything on the page
     return (
@@ -224,12 +247,18 @@ export default function App() {
 
 
 
-            {   showProductPage && <ProductPage 
-                name={product.productName}
-                image={product.productImage}
-                price={product.productPrice}
+            {showProductPageBool && (
+                <ProductPage 
+                // key={productToShow.prodId}
+                prodName={productToShow.prodName}
+                prodImage={productToShow.prodImage}
+                prodPrice={productToShow.prodPrice}
                 showProd={setShowProduct}
-            />}
+
+                handleClick={addToCart}
+                prodId={productToShow.prodId}
+                />
+            )}
 
             
             {submitted === true ? 
