@@ -6,31 +6,46 @@ export default function ProductPage(props) {
   // console.log(props)
   return (
     <div className="product--page">
-      <div className="product--head">
-        <div>/ / /</div> 
-        <button onClick={() => props.showProd(false)}>back</button>
+      <div className="product--page--head">
+		<div className="logo--container">
+			<span className="material-icons business--logo">shopping_cart</span>
+			<h5>Shop.com</h5>
+		</div>
+			<button className="close--button" onClick={() => props.showProd(false)}>
+				<span className="material-icons">close</span>
+			</button>
       </div>
-      <div className="product--specifics">
-        <div className="prod--image--container">
+	
+      <div className="product--page--body">
+        <div className="product--page--image--container">
           <img src={props.prodImage} alt="Product image" />
         </div>
 
         <div className="product--page--information">
-          <div>{props.prodName}</div>
-          
-          <div>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex ratione quod corporis numquam beatae veritatis incidunt itaque animi minima? Sit nemo hic itaque impedit ducimus ea reprehenderit eaque libero accusantium.
-              </p>
-              </div>
+			<div className="product--page--name">
+				{props.prodName}
+			</div>
+
+            <p>
+				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex ratione quod corporis numquam beatae veritatis incidunt itaque animi minima? Sit nemo hic itaque impedit ducimus ea reprehenderit eaque libero accusantium.
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis tempore error odio quibusdam est et aut sint totam suscipit nemo aperiam magni, natus veritatis inventore. Vitae ullam ea praesentium a?
+			</p>
+
+			<div className="product--page--price">
+				R {props.prodPrice}
+			</div>
+
+			<button className="addToCart"
+				onClick={() =>
+					props.handleClick(props.prodId, props.prodName, props.prodPrice, props.prodImage)}>
+
+				Add to cart
+			</button>
+
         </div>
       </div>
       
-      <button className="addToCart"
-        onClick={() =>
-            props.handleClick(props.prodId, props.prodName, props.prodPrice, props.prodImage)}>
-        
-        Add to cart
-    </button>
+
       
     </div>
   );

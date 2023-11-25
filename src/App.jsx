@@ -4,7 +4,7 @@ import { products } from "./products"
 import Header from "./componets/Header"
 import SearchResults from "./SearchedItems"
 import ProductPage from "./componets/Product-page"
-// import Cart from "./componets/Cart"
+import Categories from "./componets/Categories"
 
 export default function App() {
 
@@ -135,12 +135,18 @@ export default function App() {
             name={item.name}
             image={item.image}
             priceCents={item.priceCents}
+
+            ratingCount={item.rating.count}
+            // ratingStars={`./rating-${item.rating.stars} * 10.png`}
             // passes the 2 add functions as props to each product card
             handleClick={addToCart}
             wishlistClick={addToWishlist}
             handleProductClick={showProd}
             />
     ))
+
+    // console.log(`./rating-${productsData.rating.stars *  10}.png`)
+    // console.log(productsData.rating)
 
 
 
@@ -193,10 +199,16 @@ export default function App() {
         let searchItems = []
         productsData.map(item => {
             if(item.keywords.includes(searchValue.productSearch)) {
+            // if(item.keywords.includes('kitchen')) {
                 searchItems.push(item)
                 setSearchResult(searchItems)
                 
             }
+
+            // else if(kitchen ) {
+            //     searchItems.push(item)
+            //     setSearchResult(searchItems)
+            // }
         })
 
         if (searchItems.length === 0) {
@@ -227,8 +239,6 @@ export default function App() {
         />
     ))
 
-    
-
     // finally the return, puts everything on the page
     return (
         <main>
@@ -244,6 +254,9 @@ export default function App() {
                 searchSubmit={formSubmit}
                 />
 
+            <Categories
+            handleClick={formSubmit}
+            />
 
 
 
@@ -261,15 +274,21 @@ export default function App() {
             )}
 
             
-            {submitted === true ? 
-            <div className="product--grid">
-                <button onClick={()=>setSubmitted(false)}>End Search</button>
-                {searchGrid}
-            </div> 
-            : 
-            <section className="product--grid">
-                {productGrid}
-            </section>}
+            {submitted === true ? (
+                <>
+                    <button className="close--button end--search--button" onClick={()=>setSubmitted(false)}>
+                        <span className="material-icons">close</span>
+                    </button>
+                    <div className="product--grid">
+                        
+                        {searchGrid}
+                    </div> 
+                </>
+            ) : (
+                <section className="product--grid">
+                    {productGrid}
+                </section>
+            )}
 
             
             

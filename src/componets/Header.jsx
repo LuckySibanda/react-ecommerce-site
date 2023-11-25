@@ -61,6 +61,8 @@ export default function Header(props) {
       {/* FOR THESE 2 THE BEST THING WOULD BE A A WHOLE BOX THAT COVERS MOST OF THE PAGE BUT MUST LEAVING OUT A CHUNK SO YOU CAN STILL SEE THE MAIN PAGE, BOX SHADOW AND Z-INDEX WILL HELP*/}
 
       {toShowWishlist && (
+		<>
+		<div className="overlay" onClick={showWishlist}></div>
         <div className="wishlist">
           <div className="wishlist--header">
             <h3>Wishlist</h3>
@@ -83,6 +85,7 @@ export default function Header(props) {
             ))}
           </div>
         </div>
+		</>
       )}
 
       {/* FOR CART */}
@@ -93,6 +96,8 @@ export default function Header(props) {
                 </div>} */}
 
       {toShowCart && (
+		<>
+		<div className="overlay" onClick={showCart}></div>
         <div className="cart">
           <div className="cart--header">
             <div className="cart--header--text">Cart</div>
@@ -135,6 +140,7 @@ export default function Header(props) {
             <button className="checkout--button">Checkout</button>
           </div>
         </div>
+		</>
       )}
     </header>
   );

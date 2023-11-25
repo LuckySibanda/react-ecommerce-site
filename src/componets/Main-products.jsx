@@ -11,7 +11,7 @@ export default function MainBody(props) {
 
                 <img className="product--image"
                     onClick={() =>
-                        props.handleProductClick}
+                        props.handleProductClick(props.name, props.image, props.priceCents, props.id)}
                     src={props.image}
                     alt="Image of product"/>
             </div>
@@ -48,6 +48,16 @@ export default function MainBody(props) {
                     favorite_border
                     </span>
                 </button>
+
+
+                <div>
+                    <div>
+                        {props.ratingCount}
+                    </div>
+                    <div>
+                        {/* <img src={props.ratingStars} alt="stars rating" /> */}
+                    </div>
+                </div>
             </div>
 
 
@@ -65,4 +75,7 @@ MainBody.propTypes = {
     name: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     priceCents: PropTypes.number.isRequired,
+
+    ratingCount: PropTypes.number.isRequired,
+    // ratingStars: PropTypes.string.isRequired,
 };

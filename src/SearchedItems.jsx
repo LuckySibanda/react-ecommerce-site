@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function SearchResults(props) {
-  return (
-    <div className="product--card">
+export default function MainBody(props) {
+    return (
+        <div className="product--card">
 
             <div className="product--image--container"
                 onClick={() =>
-                    props.handleProductClick(props.name, props.priceCents, props.image)}>
+                    props.handleProductClick(props.name, props.image, props.priceCents, props.id)}>
 
                 <img className="product--image"
                     onClick={() =>
-                        props.handleProductClick(props.name, props.priceCents, props.image)}
+                        props.handleProductClick(props.name, props.image, props.priceCents, props.id)}
                     src={props.image}
                     alt="Image of product"/>
             </div>
@@ -21,7 +21,7 @@ export default function SearchResults(props) {
 
                 <div className="product--name" 
                     onClick={() =>
-                        props.handleProductClick(props.name, props.priceCents, props.image)}>
+                        props.handleProductClick(props.name, props.image, props.priceCents, props.id)}>
                     {props.name}
                 </div>
 
@@ -34,7 +34,7 @@ export default function SearchResults(props) {
             <div className="action--buttons">
                 <button className="addToCart"
                     onClick={() =>
-                        props.handleClick(props.id, props.name, props.priceCents)}>
+                        props.handleClick(props.id, props.name, props.priceCents, props.image)}>
                     
                     Add to cart
                 </button>
@@ -53,16 +53,16 @@ export default function SearchResults(props) {
 
             
         </div>
-  );
+    );
 }
 
-SearchResults.propTypes = {
-  handleClick: PropTypes.func.isRequired,
-  wishlistClick: PropTypes.func.isRequired,
-  handleProductClick: PropTypes.func.isRequired,
+MainBody.propTypes = {
+    handleClick: PropTypes.func.isRequired,
+    wishlistClick: PropTypes.func.isRequired,
+    handleProductClick: PropTypes.func.isRequired,
 
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  priceCents: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    priceCents: PropTypes.number.isRequired,
 };
