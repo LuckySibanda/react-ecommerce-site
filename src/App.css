@@ -48,6 +48,15 @@ header > h5 {
 	color: var(--clr-white-primary);
 }
 
+.stars--container {
+	width: 3rem;
+}
+
+.stars--container > img {
+	width: 100%;
+	object-fit: contain;
+}
+
 
 .wishlist {
 	position: absolute;

@@ -22,7 +22,6 @@ export default function Header(props) {
     <>
     <header>
       <div className="logo--container">
-        {/* replace with image */}
 
         <span className="material-icons business--logo">shopping_cart</span>
         <h5>Shop.com</h5>

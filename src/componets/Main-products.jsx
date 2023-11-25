@@ -7,11 +7,11 @@ export default function MainBody(props) {
 
             <div className="product--image--container"
                 onClick={() =>
-                    props.handleProductClick(props.name, props.image, props.priceCents, props.id, props.ratingCount)}>
+                    props.handleProductClick(props.name, props.image, props.priceCents, props.id, props.ratingCount, props.ratingStars)}>
 
                 <img className="product--image"
                     onClick={() =>
-                        props.handleProductClick(props.name, props.image, props.priceCents, props.id, props.ratingCount)}
+                        props.handleProductClick(props.name, props.image, props.priceCents, props.id, props.ratingCount, props.ratingStars)}
                     src={props.image}
                     alt="Image of product"/>
             </div>
@@ -21,7 +21,7 @@ export default function MainBody(props) {
 
                 <div className="product--name" 
                     onClick={() =>
-                        props.handleProductClick(props.name, props.image, props.priceCents, props.id, props.ratingCount)}>
+                        props.handleProductClick(props.name, props.image, props.priceCents, props.id, props.ratingCount, props.ratingStars)}>
                     {props.name}
                 </div>
 
@@ -39,6 +39,8 @@ export default function MainBody(props) {
                     Add to cart
                 </button>
 
+                
+
                 <button className="addtowishlist"
                     onClick={() =>
                         props.wishlistClick(props.id, props.name, props.priceCents, props.image)}>
@@ -51,11 +53,11 @@ export default function MainBody(props) {
 
 
                 <div>
+                <div className="stars--container">
+                    <img src={props.ratingStars} alt="" />
+                </div>
                     <div>
-                        {props.ratingCount}
-                    </div>
-                    <div>
-                        {/* <img src={props.ratingStars} alt="stars rating" /> */}
+                        ratings: {props.ratingCount}
                     </div>
                 </div>
             </div>
@@ -75,6 +77,8 @@ MainBody.propTypes = {
     name: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     priceCents: PropTypes.number.isRequired,
+
+    ratingStars: PropTypes.string.isRequired,
 
     ratingCount: PropTypes.number.isRequired,
     // ratingStars: PropTypes.string.isRequired,

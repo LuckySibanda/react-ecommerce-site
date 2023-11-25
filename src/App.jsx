@@ -26,18 +26,20 @@ export default function App() {
         prodImage: "",
         prodPrice: 0,
         prodId: "",
-        prodRating: 0
+        prodRating: 0,
+        prodStarsImage: ""
     })
 
     const [showProductPageBool, setShowProduct] = React.useState(false)
 
-    function showProd(name, image, priceCents, id, ratingCount) {
+    function showProd(name, image, priceCents, id, ratingCount, ratingStars) {
         setProductToShow({
             prodName: name,
             prodImage: image,
             prodPrice: priceCents,
             prodId: id,
-            prodRating: ratingCount
+            prodRating: ratingCount,
+            prodStarsImage: ratingStars
         })
         setShowProduct(true)
     }
@@ -142,6 +144,7 @@ export default function App() {
             priceCents={item.priceCents}
 
             ratingCount={item.rating.count}
+            ratingStars={`./ratings/rating-${item.rating.stars * 10}.png`}
             // ratingStars={`./rating-${item.rating.stars} * 10.png`}
             // passes the 2 add functions as props to each product card
             handleClick={addToCart}
@@ -149,6 +152,10 @@ export default function App() {
             handleProductClick={showProd}
             />
     ))
+
+    // productsData.map(item => (
+    //     console.log(`./ratings/rating-${item.rating.stars * 10}`)
+    // ))
 
     // console.log(`./rating-${productsData.rating.stars *  10}.png`)
     // console.log(productsData.rating)
@@ -236,6 +243,10 @@ export default function App() {
             name={item.name}
             image={item.image}
             priceCents={item.priceCents /10}
+
+            ratingCount={item.rating.count}
+            ratingStars={`./ratings/rating-${item.rating.stars * 10}.png`}
+
             // passes the 2 add functions to each product card
             handleClick={addToCart}
             wishlistClick={addToWishlist}
@@ -262,28 +273,19 @@ export default function App() {
                 // showCheckout={setDoCheckout}
                 />
 
-            {/* <Categories
-            handleClick={formSubmit}
-            /> */}
-
-            {/* {doCheckout && (
-                <Checkout 
-                    cartArray={cart}
-                />
-            )} */}
-
             {showProductPageBool && (
                 <ProductPage 
-                // key={productToShow.prodId}
                 prodName={productToShow.prodName}
                 prodImage={productToShow.prodImage}
                 prodPrice={productToShow.prodPrice}
+                prodId={productToShow.prodId}
                 showProd={setShowProduct}
 
                 ratingCount={productToShow.prodRating}
+                ratingStars={productToShow.prodStarsImage}
 
                 handleClick={addToCart}
-                prodId={productToShow.prodId}
+                wishlistClick={addToWishlist}
                 />
             )}
 

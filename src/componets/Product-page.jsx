@@ -15,6 +15,16 @@ export default function ProductPage(props) {
 				<span className="material-icons">close</span>
 			</button>
       </div>
+
+      <button className="addtowishlist"
+        onClick={() =>
+            props.wishlistClick(props.prodId, props.prodName, props.prodPrice, props.prodImage)}>
+        
+        {/* Wishlist */}
+        <span className="material-icons wishlist-icon">
+        favorite_border
+        </span>
+      </button>
 	
       <div className="product--page--body">
         <div className="product--page--image--container">
@@ -42,8 +52,11 @@ export default function ProductPage(props) {
 				Add to cart
 			</button>
 
+      <div className="stars--container">
+        <img src={props.ratingStars} alt="" />
+      </div>
       <div>
-          {props.ratingCount}
+          Ratings: {props.ratingCount}
       </div>
 
         </div>
@@ -60,9 +73,12 @@ ProductPage.propTypes = {
   prodImage: PropTypes.string.isRequired,
   prodPrice: PropTypes.number.isRequired,
   ratingCount: PropTypes.number.isRequired,
+  ratingStars: PropTypes.string.isRequired,
+  prodId: PropTypes.string.isRequired,
 
   showProd: PropTypes.func.isRequired,
   handleClick: PropTypes.func.isRequired,
+  wishlistClick: PropTypes.func.isRequired,
 };
 
 
