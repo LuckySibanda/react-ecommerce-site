@@ -37,10 +37,14 @@ export default function ProductPage(props) {
 
 			<button className="addToCart"
 				onClick={() =>
-					props.handleClick(props.prodId, props.prodName, props.prodPrice, props.prodImage)}>
+					props.handleClick(props.prodName, props.prodPrice, props.prodImage)}>
 
 				Add to cart
 			</button>
+
+      <div>
+          {props.ratingCount}
+      </div>
 
         </div>
       </div>
@@ -55,6 +59,7 @@ ProductPage.propTypes = {
   prodName: PropTypes.string.isRequired,
   prodImage: PropTypes.string.isRequired,
   prodPrice: PropTypes.number.isRequired,
+  ratingCount: PropTypes.number.isRequired,
 
   showProd: PropTypes.func.isRequired,
   handleClick: PropTypes.func.isRequired,

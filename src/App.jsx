@@ -4,11 +4,14 @@ import { products } from "./products"
 import Header from "./componets/Header"
 import SearchResults from "./SearchedItems"
 import ProductPage from "./componets/Product-page"
-import Categories from "./componets/Categories"
+// import Checkout from "./componets/Checkout"
+// import Categories from "./componets/Categories"
 
 export default function App() {
 
-    const [productsData, setProductsData] = React.useState(products)
+    // const [productsData, setProductsData] = React.useState(products)
+
+    const productsData = products
 
     const [cart, setCart] = React.useState([])
 
@@ -22,17 +25,19 @@ export default function App() {
         prodName: "",
         prodImage: "",
         prodPrice: 0,
-        prodId: ""
+        prodId: "",
+        prodRating: 0
     })
 
     const [showProductPageBool, setShowProduct] = React.useState(false)
 
-    function showProd(name, image, priceCents, id) {
+    function showProd(name, image, priceCents, id, ratingCount) {
         setProductToShow({
             prodName: name,
             prodImage: image,
             prodPrice: priceCents,
-            prodId: id
+            prodId: id,
+            prodRating: ratingCount
         })
         setShowProduct(true)
     }
@@ -239,6 +244,8 @@ export default function App() {
         />
     ))
 
+    // const [doCheckout, setDoCheckout] = React.useState(false)
+
     // finally the return, puts everything on the page
     return (
         <main>
@@ -252,13 +259,18 @@ export default function App() {
                 cartCount={cartCount}
                 handleSearchChange={handleChange}
                 searchSubmit={formSubmit}
+                // showCheckout={setDoCheckout}
                 />
 
-            <Categories
+            {/* <Categories
             handleClick={formSubmit}
-            />
+            /> */}
 
-
+            {/* {doCheckout && (
+                <Checkout 
+                    cartArray={cart}
+                />
+            )} */}
 
             {showProductPageBool && (
                 <ProductPage 
@@ -267,6 +279,8 @@ export default function App() {
                 prodImage={productToShow.prodImage}
                 prodPrice={productToShow.prodPrice}
                 showProd={setShowProduct}
+
+                ratingCount={productToShow.prodRating}
 
                 handleClick={addToCart}
                 prodId={productToShow.prodId}

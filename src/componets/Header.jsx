@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 export default function Header(props) {
   const [toShowCart, setToShowCart] = React.useState(false);
   const [toShowWishlist, setToShowWishlist] = React.useState(false);
+  const [toShowCheckout, setToShowCheckout] = React.useState(false)
 
   function showCart() {
     setToShowCart((prevState) => (prevState = !prevState));
@@ -13,7 +14,12 @@ export default function Header(props) {
     setToShowWishlist((prevState) => (prevState = !prevState));
   }
 
+  function showCheckout() {
+    setToShowCheckout((prevState) => (prevState = !prevState))
+}
+
   return (
+    <>
     <header>
       <div className="logo--container">
         {/* replace with image */}
@@ -44,6 +50,9 @@ export default function Header(props) {
       </form>
 
       <div className="toggle--buttons">
+
+        {/* add home button */}
+
         {/* toggles cart */}
         <button className="cart--button" onClick={showCart}>
           {/* Cart */}
@@ -61,6 +70,8 @@ export default function Header(props) {
       {/* FOR THESE 2 THE BEST THING WOULD BE A A WHOLE BOX THAT COVERS MOST OF THE PAGE BUT MUST LEAVING OUT A CHUNK SO YOU CAN STILL SEE THE MAIN PAGE, BOX SHADOW AND Z-INDEX WILL HELP*/}
 
       {toShowWishlist && (
+        props.wishlistArray.length > 0 ? (
+          
 		<>
 		<div className="overlay" onClick={showWishlist}></div>
         <div className="wishlist">
@@ -86,6 +97,15 @@ export default function Header(props) {
           </div>
         </div>
 		</>
+      
+        ) : (
+          <div className="cart">
+            Nothing in your wishlist
+            <button className="close--button" onClick={showWishlist}>
+                <span className="material-icons">close</span>
+              </button>
+          </div>
+        )
       )}
 
       {/* FOR CART */}
@@ -96,6 +116,8 @@ export default function Header(props) {
                 </div>} */}
 
       {toShowCart && (
+        props.cartArray.length > 0 ? (
+          
 		<>
 		<div className="overlay" onClick={showCart}></div>
         <div className="cart">
@@ -137,12 +159,56 @@ export default function Header(props) {
             <span>{props.cartAmount}</span>
           </div>
           <div className="checkout">
-            <button className="checkout--button">Checkout</button>
+            <button onClick={showCheckout} className="checkout--button">Checkout</button>
           </div>
         </div>
 		</>
+      
+        ) : (
+          <div className="cart">
+            Nothing in your cart
+            <button className="close--button" onClick={showCart}>
+                <span className="material-icons">close</span>
+              </button>
+          </div>
+        )
       )}
     </header>
+
+
+    <section>
+            {toShowCheckout && (
+                <>
+                <button className="close--button" onClick={showCheckout}>
+                <span className="material-icons">close</span>
+              </button>
+            <div className="cart--product--list">
+            {props.cartArray.map((item) => (
+              <div key={item.productId}>
+                <div className="product--header">Item is available</div>
+                <div className="cart--product--card">
+                  <div className="cart--product--image--container">
+                    <img src={item.productImage} alt="" />
+                  </div>
+                  <div className="cart--product--information">
+                    <div className="cart--product--name">
+                      {item.productName}
+                    </div>
+
+                    <div className="cart--product--quantity">
+                      Item {item.quantity}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          </>
+            )}
+        </section>
+
+
+    </>
   );
 }
 
@@ -150,6 +216,7 @@ Header.propTypes = {
   productSearchValue: PropTypes.string.isRequired,
   handleSearchChange: PropTypes.func.isRequired,
   searchSubmit: PropTypes.func.isRequired,
+  // showCheckout: PropTypes.func.isRequired,
 
   cartCount: PropTypes.number.isRequired,
   cartAmount: PropTypes.number.isRequired,
