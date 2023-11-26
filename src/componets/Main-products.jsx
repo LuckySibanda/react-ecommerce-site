@@ -52,13 +52,9 @@ export default function MainBody(props) {
                 </button>
 
 
-                <div>
+                
                 <div className="stars--container">
                     <img src={props.ratingStars} alt="" />
-                </div>
-                    <div>
-                        ratings: {props.ratingCount}
-                    </div>
                 </div>
             </div>
 

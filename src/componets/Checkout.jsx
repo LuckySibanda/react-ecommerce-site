@@ -10,7 +10,7 @@ export default function Checkout(props) {
     }
 
     return (
-        <section>
+        <section className="checkout">
             {closeCheckout && (
                 <>
                 <button className="close--button" onClick={showProdCheckout}>
