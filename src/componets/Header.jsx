@@ -109,12 +109,12 @@ export default function Header(props) {
               </div>
             </>
           ) : (
-            <div className="empty--wishlist">
+            <div className="empty--wishlist empty--error">
               <button className="close--button" onClick={showWishlist}>
                 <span className="material-icons">close</span>
               </button>
 
-              <div className="empty--wishlist--message">
+              <div className="empty--wishlist--message empty--list--message">
                 Nothing in your Wishlist
               </div>
             </div>
@@ -177,12 +177,12 @@ export default function Header(props) {
               </div>
             </>
           ) : (
-            <div className="empty--cart">
+            <div className="empty--cart empty--error">
               <button className="close--button" onClick={showCart}>
                 <span className="material-icons">close</span>
               </button>
 
-              <div className="empty--cart--message">
+              <div className="empty--cart--message empty--list--message">
                 <h2>Nothing in your cart</h2>
               </div>
             </div>
@@ -244,7 +244,15 @@ export default function Header(props) {
               </section>
             </div>
           ) : (
-            <div>Nothing in checkout</div>
+			<div className="empty--checkout empty--error">
+              <button className="close--button" onClick={showCheckout}>
+                <span className="material-icons">close</span>
+              </button>
+
+              <div className="empty--checkout--message empty--list--message">
+                <h2>Nothing in your checkout</h2>
+              </div>
+            </div>
           ))}
       </section>
     </>

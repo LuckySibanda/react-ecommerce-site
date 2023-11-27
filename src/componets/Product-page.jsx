@@ -6,64 +6,71 @@ export default function ProductPage(props) {
   // console.log(props)
   return (
     <div className="product--page">
-      <div className="product--page--head">
-		<div className="logo--container">
-			<span className="material-icons business--logo">shopping_cart</span>
-			<h5>Shop.com</h5>
-		</div>
-			<button className="close--button" onClick={() => props.showProd(false)}>
-				<span className="material-icons">close</span>
-			</button>
+      <div className="product--page--header">
+        <div className="logo--container">
+          <span className="material-icons business--logo">shopping_cart</span>
+          <h5>Shop.com</h5>
+        </div>
+        <button className="close--button" onClick={() => props.showProd(false)}>
+          <span className="material-icons">close</span>
+        </button>
       </div>
 
-      <button className="addtowishlist"
-        onClick={() =>
-            props.wishlistClick(props.prodId, props.prodName, props.prodPrice, props.prodImage)}>
-        
-        {/* Wishlist */}
-        <span className="material-icons wishlist-icon">
-        favorite_border
-        </span>
-      </button>
-	
       <div className="product--page--body">
         <div className="product--page--image--container">
           <img src={props.prodImage} alt="Product image" />
         </div>
 
         <div className="product--page--information">
-			<div className="product--page--name">
-				{props.prodName}
-			</div>
+          <div className="sub--header">
+            <div className="product--page--name">{props.prodName}</div>
 
-            <p>
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex ratione quod corporis numquam beatae veritatis incidunt itaque animi minima? Sit nemo hic itaque impedit ducimus ea reprehenderit eaque libero accusantium.
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis tempore error odio quibusdam est et aut sint totam suscipit nemo aperiam magni, natus veritatis inventore. Vitae ullam ea praesentium a?
-			</p>
+            <button
+              className="product--page--close--button"
+              onClick={() =>
+                props.wishlistClick(
+                  props.prodId,
+                  props.prodName,
+                  props.prodPrice,
+                  props.prodImage
+                )
+              }
+            >
+              {/* Wishlist */}
+              <span className="material-icons wishlist-icon">
+                favorite_border
+              </span>
+            </button>
+          </div>
 
-			<div className="product--page--price">
-				R {props.prodPrice}
-			</div>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex ratione
+            quod corporis numquam beatae veritatis incidunt itaque animi minima?
+            Sit nemo hic itaque impedit ducimus ea reprehenderit eaque libero
+            accusantium.
+          </p>
 
-			<button className="addToCart"
-				onClick={() =>
-					props.handleClick(props.prodName, props.prodPrice, props.prodImage)}>
+          <div className="product--page--prod--info">
+            <div className="product--page--price">R {props.prodPrice}</div>
 
-				Add to cart
-			</button>
-
-      <div className="stars--container">
-        <img src={props.ratingStars} alt="" />
-      </div>
-      <div>
-          Ratings: {props.ratingCount}
-      </div>
-
+            <div className="ratings--info-container">
+            <div className="stars--container">
+              <img src={props.ratingStars} alt="" />
+            </div>
+            <div>Ratings: {props.ratingCount}</div>
+            </div>
+          </div>
         </div>
       </div>
-      
 
-      
+      <button
+        className="product--page--addtocart"
+        onClick={() =>
+          props.handleClick(props.prodName, props.prodPrice, props.prodImage)
+        }
+      >
+        Add to cart
+      </button>
     </div>
   );
 }
@@ -80,6 +87,5 @@ ProductPage.propTypes = {
   handleClick: PropTypes.func.isRequired,
   wishlistClick: PropTypes.func.isRequired,
 };
-
 
 // image and price have switched values fix that, check order of paramms

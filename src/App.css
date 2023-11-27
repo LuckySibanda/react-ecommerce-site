@@ -64,7 +64,7 @@
   }
   
   .search--product--input {
-	width: 20rem;
+	width: 15rem;
 	padding: 0.5rem;
 	margin-right: 1.25rem;
 	border: none;
@@ -125,6 +125,7 @@
   /* Stop scrolling on main page when either of these are true */
 
 /* Wishlist and Cart Modals */
+.empty--error,
 .wishlist,
 .cart,
 .checkout {
@@ -236,8 +237,19 @@ h2 {
 	color: #555;
 }
 
+.checkout--button {
+	background-color: var(--clr-cherry-red);
+	border: none;
+	border-radius: 5px;
+	padding: 2rem 0;
+	font-size: 1.625rem;
+	color: #fff;
+	width: 100%;
+}
+
 /* Adjustments for Small to Medium Devices */
 @media screen and (max-width: 600px) {
+  .empty--error,
   .wishlist,
   .cart,
   .checkout {
@@ -388,3 +400,101 @@ h2 {
 		grid-template-columns: repeat(3, 1fr);
 	}
   }
+
+
+.product--page {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+}
+
+.product--page--header {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 3rem;
+	align-items: center;
+}
+
+.product--page--body {
+	display: flex;
+	flex-direction: column;
+}
+
+.sub--header {
+	margin: 1rem 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: auto;
+}
+
+.product--page--name {
+	font-size: 1.65rem;
+	font-weight: 600;
+}
+
+.product--page--close--button {
+	background-color: transparent;
+	border: none;
+}
+
+.product--page--close--button span {
+	font-size: 2rem;
+}
+
+.product--page--image--container {
+	width: 70%;
+	height: 294px;
+	display: flex;
+	margin: 0 auto;
+}
+
+.product--page--image--container img {
+	object-fit: contain;
+	display: flex;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.product--page--prod--info {
+	margin: 1rem 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.product--page--price {
+	font-size: 1.25rem;
+	font-weight: 600;
+}
+
+.product--page--addtocart {
+	background-color: var(--clr-cherry-red);
+	border: none;
+	border-radius: 5px;
+	padding: 2rem 0;
+	font-size: 1.625rem;
+	color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+	body {
+		/* for the product page to be position top */
+		position: relative;
+	}
+
+	.product--page {
+		width: 100%;
+    	max-width: none;
+		position: absolute;
+		background-color: #fff;
+		top: 0;
+		right: 0;
+		height: 46rem;
+		z-index: 1001;
+	}
+}
+
+/* think theres a bug with how the product page product is being added to the cart if user wants to do that, check props, functions and all that stuff header */
+
+/* ALSO STYLES FOR SEARCHED PRODUCTS */
