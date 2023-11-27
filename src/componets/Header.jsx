@@ -18,6 +18,14 @@ export default function Header(props) {
     setToShowCheckout((prevState) => (prevState = !prevState));
   }
 
+  function goHome() {
+    setToShowCart(false)
+
+    setToShowWishlist(false)
+
+    setToShowCheckout(false)
+  }
+
   return (
     <>
       <header>
@@ -49,7 +57,9 @@ export default function Header(props) {
 
           {/* add home button */}
 		<button>
-		<span className="material-symbols-outlined">
+      {/* close everything and display home page */}
+		<span className="material-symbols-outlined" 
+      onClick={goHome}>
 		home
 		</span>
 		</button>

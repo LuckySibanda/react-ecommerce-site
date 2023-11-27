@@ -364,7 +364,7 @@ h2 {
 .product--page {
 	display: flex;
 	flex-direction: column;
-	padding: 1rem;
+	padding: 0..25rem;
 
 
 	width: 100%;
@@ -374,7 +374,7 @@ h2 {
 	top: 0;
 	right: 0;
 	/* height: 46rem; */
-	height: 95vh;
+	height: 100vh;
 	z-index: 1001;
 }
 
@@ -413,8 +413,8 @@ h2 {
 }
 
 .product--page--image--container {
-	width: 70%;
-	height: 294px;
+	width: 60%;
+	height: 250px;
 	display: flex;
 	margin: 0 auto;
 }
@@ -440,6 +440,8 @@ h2 {
 
 .product--page--addtocart {
 	background-color: var(--clr-cherry-red);
+	width: 70%;
+	margin: 0 auto;
 	border: none;
 	border-radius: 5px;
 	padding: 2rem 0;
@@ -578,11 +580,16 @@ h2 {
 }
 
 
-/* @media screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
 
 	.product--grid {
 		grid-template-columns: repeat(5, 1fr);
 	}
-} */
+
+	.product--page {
+		width: 80%;
+		right: 10%;
+	}
+}
 
 /* ALSO STYLES FOR SEARCHED PRODUCTS */

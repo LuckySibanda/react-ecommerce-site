@@ -53,8 +53,17 @@ export default function ProductPage(props) {
 
 
                 
+                {/* <div className="stars--container">
+                    <img src={props.ratingStars} alt="" />
+                </div> */}
+
+<div>
                 <div className="stars--container">
                     <img src={props.ratingStars} alt="" />
+                </div>
+                    <div>
+                        ratings: {props.ratingCount}
+                    </div>
                 </div>
             </div>
 
