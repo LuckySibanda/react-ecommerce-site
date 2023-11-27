@@ -6,151 +6,130 @@
 	--clr-sky-blue: #A8DADC;
 	--clr-water-blue: #457B9D;
 	--clr-bold-blue: #1D3557;
-  }
-  
-  body,
-  h1,
-  h2,
-  h3,
-  p {
+}
+
+body,
+h1,
+h2,
+h3,
+p {
 	margin: 0;
 	padding: 0;
-  }
-  
-  *,
-  *::before,
-  *::after {
+}
+
+*,
+*::before,
+*::after {
 	box-sizing: border-box;
 	font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  img {
+}
+
+img {
 	max-width: 100%;
 	height: auto;
-  }
-  
-  /* Disable text selection */
-  body {
+}
+
+/* Disable text selection */
+body {
 	user-select: none;
 	overflow-x: hidden;
-  }
-  
-  /* Enable text selection within specific elements */
-  .enable-select {
+}
+
+/* Enable text selection within specific elements */
+.enable-select {
 	user-select: text;
-  }
-  
-  /* Header Styles */
-  header {
+}
+
+/* Header Styles */
+header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 10px 20px;
 	background-color: var(--clr-bold-blue);
 	color: var(--clr-white-primary);
-  }
-  
-  .logo--container {
+}
+
+.logo--container {
 	display: flex;
 	align-items: center;
-  }
-  
-  .logo--container h3 {
+}
+
+.logo--container h3 {
 	margin-left: 0.625rem;
-  }
-  
-  .search--box--container {
+}
+
+.search--box--container {
+	width: 90%;
 	display: flex;
-  }
-  
-  .search--product--input {
-	width: 15rem;
+	justify-content: center;
+}
+
+.search--product--input {
+	/* width: 15rem; */
+	width: 70%;
 	padding: 0.5rem;
 	margin-right: 1.25rem;
 	border: none;
 	border-radius: 0.3125rem;
-  }
-  
-  .search--button {
+}
+
+.search--button {
 	background-color: var(--clr-sky-blue);
 	border: none;
 	border-radius: 0.3125rem;
 	padding: 0.5rem;
 	cursor: pointer;
-  }
-  
-  .toggle--buttons {
+}
+
+.toggle--buttons {
 	display: flex;
 	justify-content: space-around;
-  }
-  
-  /* Individual Toggle Button Styling */
-  .toggle--buttons button {
+}
+
+/* Individual Toggle Button Styling */
+.toggle--buttons button {
 	background-color: transparent;
 	border: none;
 	color: var(--clr-white-primary);
 	font-size: 16px;
-  }
-  
-  /* Adjustments for Small to Medium Devices */
-  @media screen and (max-width: 600px) {
-	header {
-	  flex-direction: column;
-	  align-items: center;
-	}
-  
-	.toggle--buttons {
-	  position: fixed;
-	  bottom: 0;
-	  width: 100%;
-	  background-color: var(--clr-bold-blue);
-	  padding: 10px;
-	  display: flex;
-	  justify-content: space-around;
-	  z-index: 10000;
-	}
-  
-	.cart--button,
-	.wishlist--button {
-	  margin-right: 0;
-	}
-  
-	.search--box--container {
-	  margin-top: 10px;
-	}
-  }
+}
 
 
 
-  /* Stop scrolling on main page when either of these are true */
+
+
+/* Stop scrolling on main page when either of these are true */
 
 /* Wishlist and Cart Modals */
 .empty--error,
 .wishlist,
 .cart,
 .checkout {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 50px;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  z-index: 1000;
-  max-width: 80%;
-  overflow-y: auto;
-  color: black;
-  display: flex;
-  flex-direction: column;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 50px;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	z-index: 1000;
+	width: 40%;
+	max-width: 80%;
+	height: 95vh;
+	overflow-y: auto;
+	color: black;
+	display: flex;
+	flex-direction: column;
 }
 
 .wishlist--header,
 .cart--header,
 .checkout--header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
 }
 
 h2 {
@@ -175,20 +154,20 @@ h2 {
 .wishlist--product--list,
 .cart--product--list,
 .checkout--product--list {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-height: 70vh;
-  overflow-y: auto;
+	margin-top: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	max-height: 70vh;
+	overflow-y: auto;
 }
 
 .action--product--card {
-  margin-top: 1rem;
-  max-width: 100%;
-  display: flex;
-  border: 2px solid grey;
-  /* border-bottom: 2px solid grey; */
+	margin-top: 1rem;
+	max-width: 100%;
+	display: flex;
+	border: 2px solid grey;
+	/* border-bottom: 2px solid grey; */
 }
 
 .wishlist--product--card {
@@ -200,8 +179,8 @@ h2 {
 }
 
 .action--product--card--img--container {
-  /* width: 40%; */
-  	display: flex;
+	/* width: 40%; */
+	display: flex;
 	justify-content: center;
 	width: 25%;
 	height: 7em;
@@ -210,10 +189,10 @@ h2 {
 }
 
 .action--product--card--img--container img {
-  /* object-fit: contain;
+	/* object-fit: contain;
   width: 100%; */
 
-  	display: flex;
+	display: flex;
 	width: 100%;
 	height: auto;
 	object-fit: contain;
@@ -247,22 +226,7 @@ h2 {
 	width: 100%;
 }
 
-/* Adjustments for Small to Medium Devices */
-@media screen and (max-width: 600px) {
-  .empty--error,
-  .wishlist,
-  .cart,
-  .checkout {
-    width: 100%;
-    max-width: none;
-  }
-  
-  .wishlist--product--list,
-  .cart--product--list,
-  .checkout--product--list {
-    max-height: none; /* Remove max-height on small screens */
-  }
-}
+
 
 
 .product--grid {
@@ -275,9 +239,9 @@ h2 {
 	align-items: center;
 	margin: 3rem auto;
 	padding: 0.625rem;
-  }
-  
-  .product--card {
+}
+
+.product--card {
 	position: relative;
 
 	background-color: #fff;
@@ -287,62 +251,64 @@ h2 {
 
 	width: 100%;
 	height: 100%;
-	
+
 
 	border: 1px solid #ddd;
 	border-radius: 8px;
 	overflow: hidden;
-  }
-  
-  .product--image--container {
+}
+
+.product--image--container {
 	display: flex;
 	margin: 10px auto;
 	width: 100%;
 	height: 13em;
 	cursor: pointer;
 	overflow: hidden;
-  }
-  
-  .product--image {
+}
+
+.product--image {
 	display: flex;
 	width: 90%;
 	height: auto;
 	object-fit: contain;
 	margin: 0 auto;
 	cursor: pointer;
-	transition: transform 0.3s ease; /* Add a smooth transition effect on hover */
-  }
-  
-  .product--image:hover {
-	transform: scale(1.1); /* Add a slight zoom effect on hover */
-  }
-  
-  .product--information {
+	transition: transform 0.3s ease;
+	/* Add a smooth transition effect on hover */
+}
+
+.product--image:hover {
+	transform: scale(1.1);
+	/* Add a slight zoom effect on hover */
+}
+
+.product--information {
 	font-family: Arial, Helvetica, sans-serif;
 	padding: 6px;
-  }
-  
-  .product--name {
+}
+
+.product--name {
 	font-size: 1.1rem;
 	font-weight: bold;
 	margin-bottom: 8px;
 	cursor: pointer;
-  }
-  
-  .product--price {
+}
+
+.product--price {
 	font-size: 1rem;
 	color: #555;
-  }
-  
-  .action--buttons {
+}
+
+.action--buttons {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 16px 5px;
-  }
-  
-  .addToCart,
-  .addtowishlist {
+}
+
+.addToCart,
+.addtowishlist {
 	/* make it glowy lime green */
 	background-color: var(--clr-bold-blue);
 	color: #fff;
@@ -350,62 +316,66 @@ h2 {
 	padding: 8px 16px;
 	border-radius: 4px;
 	cursor: pointer;
-	transition: background-color 0.3s ease;
-  }
+	transition: 0.3s ease;
+}
 
-  .addtowishlist {
+.addtowishlist {
 	position: absolute;
 	top: 0;
 	right: 0;
 	background-color: transparent;
-  }
-  
-  .addToCart:hover,
-  .addtowishlist:hover {
+}
+
+.addToCart:hover,
+.addtowishlist:hover {
 	background-color: var(--clr-cherry-red);
-  }
-  
-  .stars--container {
+}
+
+.stars--container {
 	display: flex;
 	/* margin: 10px; */
 	width: 40%;
 	height: 1.3em;
 	cursor: pointer;
 	overflow: hidden;
-  }
+}
 
-  .stars--container img {
+.stars--container img {
 	display: flex;
 	width: 100%;
 	/* height: auto; */
 	object-fit: contain;
 	margin: 0 auto;
 	cursor: pointer;
-  }
-  
-  .wishlist-icon {
+}
+
+.wishlist-icon {
 	font-size: 1.5rem;
 	color: var(--clr-cherry-red);
-  }
-  
+}
 
-  @media screen and (max-width: 600px) {
-	.product--grid {
-		grid-template-columns: repeat(2, 1fr);
-	}
-  }
 
-  @media (min-width: 601px) and (max-width: 1000px) {
-	.product--grid {
-		grid-template-columns: repeat(3, 1fr);
-	}
-  }
+
+
+
+
 
 
 .product--page {
 	display: flex;
 	flex-direction: column;
 	padding: 1rem;
+
+
+	width: 100%;
+	max-width: none;
+	position: absolute;
+	background-color: #fff;
+	top: 0;
+	right: 0;
+	/* height: 46rem; */
+	height: 95vh;
+	z-index: 1001;
 }
 
 .product--page--header {
@@ -477,7 +447,60 @@ h2 {
 	color: #fff;
 }
 
+
+
+
+
+
+/* Adjustments for Small to Medium Devices */
 @media screen and (max-width: 600px) {
+	header {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.toggle--buttons {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		background-color: var(--clr-bold-blue);
+		padding: 10px;
+		display: flex;
+		justify-content: space-around;
+		z-index: 10000;
+	}
+
+	.cart--button,
+	.wishlist--button {
+		margin-right: 0;
+	}
+
+	.search--box--container {
+		margin-top: 10px;
+	}
+
+
+	.product--grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+
+	.empty--error,
+	.wishlist,
+	.cart,
+	.checkout {
+		width: 100%;
+		max-width: none;
+	}
+
+	.wishlist--product--list,
+	.cart--product--list,
+	.checkout--product--list {
+		max-height: none;
+		/* Remove max-height on small screens */
+	}
+
+
 	body {
 		/* for the product page to be position top */
 		position: relative;
@@ -485,16 +508,81 @@ h2 {
 
 	.product--page {
 		width: 100%;
-    	max-width: none;
+		max-width: none;
 		position: absolute;
 		background-color: #fff;
 		top: 0;
 		right: 0;
-		height: 46rem;
+		/* height: 46rem; */
+		height: 95vh;
 		z-index: 1001;
 	}
 }
 
-/* think theres a bug with how the product page product is being added to the cart if user wants to do that, check props, functions and all that stuff header */
+
+
+
+
+
+@media (min-width: 601px) and (max-width: 850px) {
+
+	header {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.toggle--buttons {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		background-color: var(--clr-bold-blue);
+		padding: 10px;
+		display: flex;
+		justify-content: space-around;
+		z-index: 10000;
+	}
+
+	.cart--button,
+	.wishlist--button {
+		margin-right: 0;
+	}
+
+	.search--box--container {
+		margin-top: 10px;
+	}
+
+
+
+
+	.product--grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.empty--error,
+	.wishlist,
+	.cart,
+	.checkout {
+		height: 100vh;
+		width: 70%;
+		max-width: 90%;
+	}
+
+}
+
+
+@media (min-width: 851px) and (max-width: 1200px) {
+
+	.product--grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+
+/* @media screen and (min-width: 1200px) {
+
+	.product--grid {
+		grid-template-columns: repeat(5, 1fr);
+	}
+} */
 
 /* ALSO STYLES FOR SEARCHED PRODUCTS */

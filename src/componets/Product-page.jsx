@@ -66,7 +66,7 @@ export default function ProductPage(props) {
       <button
         className="product--page--addtocart"
         onClick={() =>
-          props.handleClick(props.prodName, props.prodPrice, props.prodImage)
+          props.handleClick(props.prodId, props.prodName, props.prodPrice, props.prodImage)
         }
       >
         Add to cart

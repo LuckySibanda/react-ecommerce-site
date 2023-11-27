@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function MainBody(props) {
+export default function ProductPage(props) {
     return (
         <div className="product--card">
 
@@ -64,7 +64,7 @@ export default function MainBody(props) {
     );
 }
 
-MainBody.propTypes = {
+ProductPage.propTypes = {
     handleClick: PropTypes.func.isRequired,
     wishlistClick: PropTypes.func.isRequired,
     handleProductClick: PropTypes.func.isRequired,
