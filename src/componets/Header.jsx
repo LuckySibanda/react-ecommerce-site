@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from 'react';
 import PropTypes from "prop-types";
 
 export default function Header(props) {
@@ -25,6 +26,30 @@ export default function Header(props) {
 
     setToShowCheckout(false)
   }
+
+  // const stopScroll = {
+  //   overflow: toShowCart === 'true' ? 'hidden' : 'auto'
+  // }
+
+  // useEffect(() => {
+  //   if (showCart) {
+  //     document.main.classList.add('cart-open');
+  //   } 
+  //   // else {
+  //   //   document.body.classList.remove('cart-open');
+  //   // }
+
+  //   if (showWishlist) {
+  //     document.main.classList.add('wishlist-open');
+  //   } 
+  //   // else {
+  //   //   document.body.classList.remove('wishlist-open');
+  //   // }
+
+  //   // return () => {
+  //   //   // Cleanup if needed
+  //   // };
+  // }, [showCart, showWishlist]);
 
   return (
     <>
