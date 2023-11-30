@@ -41,6 +41,7 @@ export default function App() {
             prodRating: ratingCount,
             prodStarsImage: ratingStars
         })
+        // superFunc()
         setShowProduct(true)
     }
 
@@ -150,6 +151,10 @@ export default function App() {
             handleClick={addToCart}
             wishlistClick={addToWishlist}
             handleProductClick={showProd}
+
+            
+
+            // productPageStopScroll={productPageStopScroll}
             />
     ))
 
@@ -258,6 +263,51 @@ export default function App() {
     // const [doCheckout, setDoCheckout] = React.useState(false)
 
     // finally the return, puts everything on the page
+
+
+    // determines whether to show product--grid when cart is toggled on
+    const [CartScroll, setCartScroll] = React.useState(true)
+    const [WishlistScroll, setWishlistScroll] = React.useState(true)
+    const [CheckoutScroll, setCheckoutScroll] = React.useState(true)
+    // const [productPageScroll, setProductPageScroll] = React.useState(true)
+
+    // RIGHT THIS IS HOW THIS WORKS, WHEN FOR EXAMPLE THE CART IS TOGGLED ON, THE ONCLICK PASSES THE INITIAL STATE
+    // OF FALSE NOT TRUE, THE STATE IS ONLY FLIPPED TO TRUE WHEN showCart IS CALLED.
+    // HERE CartScroll IS INITIALLY TRUE WHICH MEANS THE PRODUCT--GRID IS RENDERED UNTIL YOUR TOGGLE THE CART WHICH RUNS
+    // CartStopScroll THAT FLIPS CartScroll TO FALSE AND PRODUCT--GRID IS UNMOUNTED/NOT SHOWN
+    // superFunc TOGGLES ALL TRUE VALUES TO FALSE SO THAT IT DOESNT MATTER WHICH FEATURE IS TOGGLED ON, PRODUCT--GRID
+    // IS UNMOUNTED EITHER WAY
+
+    function CartStopScroll(toShowCart) {
+        setCartScroll(toShowCart)
+        console.log(CartScroll)
+    }
+
+    function WishlistStopScroll(toShowWishlist) {
+        setWishlistScroll(toShowWishlist)
+    }
+
+    function CheckoutStopScroll(toShowCheckout) {
+        setCheckoutScroll(toShowCheckout)
+    }
+
+    // function productPageStopScroll(noShow) {
+    //     setProductPageScroll(noShow)
+    // }
+
+    // A function that calls all three functions, pass is as props and when either one of the features is toggled, it calls the function that will make all three false
+
+    // toggle all three if one is toggled
+
+    function superFunc() {
+        CartStopScroll()
+        WishlistStopScroll()
+        CheckoutStopScroll()
+
+        // productPageStopScroll()
+    }
+    
+
     return (
         <main>
             <Header
@@ -270,26 +320,56 @@ export default function App() {
                 cartCount={cartCount}
                 handleSearchChange={handleChange}
                 searchSubmit={formSubmit}
-                // showCheckout={setDoCheckout}
+                
+                superFunction={superFunc}
+
+                CartScroll={CartStopScroll}
+                WishlistScroll={WishlistStopScroll}
+                CheckoutScroll={CheckoutStopScroll}
                 />
 
             {showProductPageBool && (
-                <ProductPage 
-                prodName={productToShow.prodName}
-                prodImage={productToShow.prodImage}
-                prodPrice={productToShow.prodPrice}
-                prodId={productToShow.prodId}
-                showProd={setShowProduct}
+                    <ProductPage 
+                        prodName={productToShow.prodName}
+                        prodImage={productToShow.prodImage}
+                        prodPrice={productToShow.prodPrice}
+                        prodId={productToShow.prodId}
+                        showProd={setShowProduct}
 
-                ratingCount={productToShow.prodRating}
-                ratingStars={productToShow.prodStarsImage}
+                        ratingCount={productToShow.prodRating}
+                        ratingStars={productToShow.prodStarsImage}
 
-                handleClick={addToCart}
-                wishlistClick={addToWishlist}
-                />
+                        handleClick={addToCart}
+                        wishlistClick={addToWishlist}
+
+                        // superFunction={superFunc}
+                    />
+                
             )}
 
-            
+
+            {submitted === true ? ((CartScroll || WishlistScroll || CheckoutScroll) && (
+            <>
+                <button className="close--button end--search--button" onClick={() => setSubmitted(false)}>
+                <span className="material-icons">close</span>
+                </button>
+                <div className="product--grid">
+                {searchGrid}
+                </div>
+            </>
+            )
+            ) : (
+            (CartScroll || WishlistScroll || CheckoutScroll) && (
+                <section className="product--grid">
+                {productGrid}
+                </section>
+            )
+            )}
+
+            {/* insert overlay for partial feature screen cover */}
+
+
+                {/*
             {submitted === true ? (
                 <>
                     <button className="close--button end--search--button" onClick={()=>setSubmitted(false)}>
@@ -300,12 +380,20 @@ export default function App() {
                         {searchGrid}
                     </div> 
                 </>
-            ) : (
+            ) : ( {CartScroll || WishlistScroll || CheckoutScroll ? (
                 <section className="product--grid">
                     {productGrid}
                 </section>
+            ) : null}
+                
             )}
+            */}
 
+
+
+
+            {/* pass the state of showcart from the header when cart button is pressed,
+            App.jsx then uses  the state to determine whether to show product--grid or not depending on whether show cart is true or false */}
             
             
         </main>

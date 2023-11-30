@@ -248,9 +248,9 @@ h2 {
 	/* background-color: #fff; */
 	/* background-color: #000; */
 	/* background-color: rgb(0, 255, 0); */
-	/* background: linear-gradient(to top, #033a71, #000); */
-	background: linear-gradient(to top, rgb(0, 255, 0), rgba(0, 0, 0, 0.9));
-
+	/* background: linear-gradient(to top, #2bff00, #fff); */
+	/* background-color: #1aff00; */
+	background-color: #000;
 
 
 	/* color: #fff; */
@@ -282,6 +282,9 @@ h2 {
 	background-color: #fff;
 	border-bottom-left-radius: 24px;
 	border-bottom-right-radius: 24px;
+	border-top-right-radius: 7px;
+	border-top-left-radius: 7px;
+	border: 2px solid #1aff00;
 	/* chrome incongito theme */
 }
 
@@ -344,7 +347,7 @@ h2 {
 
 	/* background-color: var(--clr-bold-blue); */
 	color: #fff;
-	/* color: #000; */
+	color: #000;
 	border: none;
 	padding: 0.5rem 0.625rem;
 	border-radius: 4px;
@@ -353,7 +356,9 @@ h2 {
 
 	/* TESTING STYLES */
 	/* background-color: #00ff00; */
-	background-color: #000;
+	background-color: #ffffff;
+	/* background-color: #000; */
+	/* background-color: #1aff00; */
   	/* transition: box-shadow 0.3s ease-in-out; */
 }
 
@@ -652,19 +657,3 @@ h2 {
 		right: 10%;
 	}
 }
-
-/* ALSO STYLES FOR SEARCHED PRODUCTS */
-
-/* App.css (or your global CSS file) */
-
-body.cart-open {
-    overflow: hidden;
-  }
-
-  /* Disable scrolling when cart is open  */
-  
-  body.wishlist-open {
-    /* overflow: hidden;  */
-  }
-
-  /* Disable scrolling when wishlist is open */

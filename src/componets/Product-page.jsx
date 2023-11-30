@@ -1,9 +1,12 @@
-import React from "react";
+// import React from "react";
 import PropTypes from "prop-types";
 
 export default function ProductPage(props) {
   // console.log(props.image)
   // console.log(props)
+
+ 
+
   return (
     <div className="product--page">
       <div className="product--page--header">
@@ -86,6 +89,8 @@ ProductPage.propTypes = {
   showProd: PropTypes.func.isRequired,
   handleClick: PropTypes.func.isRequired,
   wishlistClick: PropTypes.func.isRequired,
+
+  // superFunction: PropTypes.func.isRequired,
 };
 
 // image and price have switched values fix that, check order of paramms
