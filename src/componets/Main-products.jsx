@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import PropTypes from "prop-types";
 
 export default function MainBody(props) {
@@ -14,7 +14,11 @@ export default function MainBody(props) {
 							props.handleProductClick(props.name, props.image, props.priceCents, props.id, props.ratingCount, props.ratingStars)}
 						src={props.image}
 						alt="Image of product" />
+
+						
 				</div>
+
+				<hr className="image--line" />
 
 
 			<div className="product--information">
@@ -49,14 +53,13 @@ export default function MainBody(props) {
                     <img src={props.ratingStars} alt="" />
                 </div> */}
 
-				<div>
+				{/* <div>
 					<div className="stars--container">
 						<img src={props.ratingStars} alt="" />
 					</div>
-					{/* <div>
-                        ratings: {props.ratingCount}
-                    </div> */}
-				</div>
+				</div> */}
+
+				
 			</div>
 
 			<button className="addtowishlist"
@@ -64,8 +67,8 @@ export default function MainBody(props) {
 					props.wishlistClick(props.id, props.name, props.priceCents, props.image)}>
 
 				{/* Wishlist */}
-				<span className="material-icons wishlist-icon">
-					favorite_border
+				<span className="material-symbols-rounded wishlist-icon">
+					favorite
 				</span>
 			</button>
 

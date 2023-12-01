@@ -51,7 +51,7 @@ export default function Header(props) {
 
 					{/* Search submit button */}
 					<button className="search--button">
-						<span className="material-icons">search</span>
+						<span className="material-symbols-rounded">search</span>
 					</button>
 				</form>
 
@@ -60,7 +60,8 @@ export default function Header(props) {
 					{/* home button */}
 					<button>
 						{/* closes everything and display home page */}
-						<span className="material-symbols-outlined" onClick={goHome}>
+						<span className="material-symbols-rounded"
+						onClick={goHome}>
 							home
 						</span>
 					</button>
@@ -70,7 +71,7 @@ export default function Header(props) {
 						<button className="cart--button" onClick={showCart}>
 							<span
 								onClick={() => props.CartScroll(toShowCart)}
-								className="material-symbols-outlined"
+								className="material-symbols-rounded"
 							>
 								shopping_cart
 							</span>
@@ -81,10 +82,10 @@ export default function Header(props) {
 					<span onClick={props.superFunction}>
 						<button onClick={showCheckout}>
 							<span
-								className="material-symbols-outlined"
+								className="material-symbols-rounded"
 								onClick={() => props.CheckoutScroll(toShowCheckout)}
 							>
-								shopping_cart_checkout
+								shopping_bag
 							</span>
 						</button>
 					</span>
@@ -94,10 +95,10 @@ export default function Header(props) {
 						<button className="wishlist--button" onClick={showWishlist}>
 							{/* Wishlist */}
 							<span
-								className="material-icons"
+								className="material-symbols-rounded"
 								onClick={() => props.WishlistScroll(toShowWishlist)}
 							>
-								favorite_border
+								favorite
 							</span>
 						</button>
 					</span>
@@ -116,7 +117,7 @@ export default function Header(props) {
 									<button className="close--button" onClick={showWishlist}>
 										<span
 											onClick={() => props.WishlistScroll(toShowWishlist)}
-											className="material-icons"
+											className="material-symbols-rounded"
 										>
 											close
 										</span>
@@ -133,7 +134,7 @@ export default function Header(props) {
 											</div>
 
 											<div className="wishlist--product--price action--product--extras">
-												{item.productPrice}
+												R {item.productPrice}
 											</div>
 										</div>
 									))}
@@ -173,7 +174,7 @@ export default function Header(props) {
 										<button className="close--button" onClick={showCart}>
 											<span
 												onClick={() => props.CartScroll(toShowCart)}
-												className="material-icons"
+												className="material-symbols-rounded"
 											>
 												close
 											</span>
@@ -247,7 +248,7 @@ export default function Header(props) {
 								<h2>Checkout</h2>
 								<button className="close--button" onClick={showCheckout}>
 									<span
-										className="material-icons"
+										className="material-symbols-rounded"
 										onClick={() => props.CheckoutScroll(toShowCheckout)}
 									>
 										close

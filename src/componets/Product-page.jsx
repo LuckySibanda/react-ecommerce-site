@@ -11,11 +11,11 @@ export default function ProductPage(props) {
     <div className="product--page">
       <div className="product--page--header">
         <div className="logo--container">
-          <span className="material-icons business--logo">shopping_cart</span>
+          <span className="material-symbols-rounded business--logo">shopping_cart</span>
           <h5>Shop.com</h5>
         </div>
         <button className="close--button" onClick={() => props.showProd(false)}>
-          <span className="material-icons">close</span>
+          <span className="material-symbols-rounded">close</span>
         </button>
       </div>
 
@@ -40,8 +40,8 @@ export default function ProductPage(props) {
               }
             >
               {/* Wishlist */}
-              <span className="material-icons wishlist-icon">
-                favorite_border
+              <span className="material-symbols-rounded wishlist-icon">
+                favorite
               </span>
             </button>
           </div>

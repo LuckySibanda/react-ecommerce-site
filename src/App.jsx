@@ -350,8 +350,8 @@ export default function App() {
 
             {submitted === true ? ((CartScroll || WishlistScroll || CheckoutScroll) && (
             <>
-                <button className="close--button end--search--button" onClick={() => setSubmitted(false)}>
-                <span className="material-icons">close</span>
+                <button className="close--button end--search--button" onClick={() => setSubmitted(false)}>End search
+                <span className="material-symbols-rounded">close</span>
                 </button>
                 <div className="product--grid">
                 {searchGrid}

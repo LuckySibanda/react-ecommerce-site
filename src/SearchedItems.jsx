@@ -16,7 +16,7 @@ export default function SearchedItems(props) {
 						src={props.image}
 						alt="Image of product" />
 				</div>
-
+                <hr className="image--line" />
 
 			<div className="product--information">
 
@@ -50,14 +50,14 @@ export default function SearchedItems(props) {
                     <img src={props.ratingStars} alt="" />
                 </div> */}
 
-				<div>
-					<div className="stars--container">
+				{/* <div> */}
+					{/* <div className="stars--container">
 						<img src={props.ratingStars} alt="" />
-					</div>
+					</div> */}
 					{/* <div>
                         ratings: {props.ratingCount}
                     </div> */}
-				</div>
+				{/* </div> */}
 			</div>
 
 			<button className="addtowishlist"
@@ -65,8 +65,8 @@ export default function SearchedItems(props) {
 					props.wishlistClick(props.id, props.name, props.priceCents, props.image)}>
 
 				{/* Wishlist */}
-				<span className="material-icons wishlist-icon">
-					favorite_border
+				<span className="material-symbols-rounded wishlist-icon">
+					favorite
 				</span>
 			</button>
 
