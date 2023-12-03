@@ -1,36 +1,50 @@
-// import React from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 export default function MainBody(props) {
+
+	const [toShowCart, setToShowCart] = React.useState(false);
+
+	const price = (props.priceCents / 10).toFixed(2)
+
 	return (
 		<div className="product--card">
 
-				<div className="product--image--container"
-					onClick={() =>
-						props.handleProductClick(props.name, props.image, props.priceCents, props.id, props.ratingCount, props.ratingStars)}>
+				<span onClick={props.superFunction}>
+					<span onClick={() => props.CartScroll(toShowCart)}>
+						<div className="product--image--container"
+							onClick={() =>
+								props.handleProductClick(props.name, props.image, props.priceCents, props.id, props.ratingCount, props.ratingStars)}>
+								<img className="product--image"
+									onClick={() =>
+										props.handleProductClick(props.name, props.image, props.priceCents, props.id, props.ratingCount, props.ratingStars)}
+									src={props.image}
+									alt="Image of product" />
 
-					<img className="product--image"
-						onClick={() =>
-							props.handleProductClick(props.name, props.image, props.priceCents, props.id, props.ratingCount, props.ratingStars)}
-						src={props.image}
-						alt="Image of product" />
-
-						
-				</div>
+								<div className="sale--div">50% OFF</div>
+						</div>
+					</span>
+				</span>
 
 				<hr className="image--line" />
 
 
 			<div className="product--information">
-
+				
+				<span onClick={props.superFunction}>
+				<span onClick={() => props.CartScroll(toShowCart)}>
 				<div className="product--name"
 					onClick={() =>
-						props.handleProductClick(props.name, props.image, props.priceCents, props.id, props.ratingCount, props.ratingStars)}>
+						props.handleProductClick(props.name, props.image, props.priceCents, props.id, props.ratingCount, props.ratingStars)}
+						>
 					{props.name}
 				</div>
+				</span>
+				</span>
 
 				<div className="product--price">
-					R {props.priceCents}
+					{/* R {props.priceCents /10} */}
+					R {price}
 				</div>
 			</div>
 
@@ -43,23 +57,6 @@ export default function MainBody(props) {
 					Add to cart
 				</button>
 
-
-
-
-
-
-
-				{/* <div className="stars--container">
-                    <img src={props.ratingStars} alt="" />
-                </div> */}
-
-				{/* <div>
-					<div className="stars--container">
-						<img src={props.ratingStars} alt="" />
-					</div>
-				</div> */}
-
-				
 			</div>
 
 			<button className="addtowishlist"
@@ -82,7 +79,8 @@ MainBody.propTypes = {
 	wishlistClick: PropTypes.func.isRequired,
 	handleProductClick: PropTypes.func.isRequired,
 
-	// productPageStopScroll: PropTypes.func.isRequired,
+	CartScroll: PropTypes.func.isRequired,
+	superFunction: PropTypes.func.isRequired,
 	
 
 	id: PropTypes.string.isRequired,

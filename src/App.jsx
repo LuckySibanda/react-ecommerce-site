@@ -2,8 +2,10 @@ import React from "react"
 import MainBody from "./componets/Main-products"
 import { products } from "./products"
 import Header from "./componets/Header"
+import Banner from "./Banner"
 import SearchResults from "./SearchedItems"
 import ProductPage from "./componets/Product-page"
+import Footer from "./componets/Footer"
 // import Checkout from "./componets/Checkout"
 // import Categories from "./componets/Categories"
 
@@ -45,31 +47,6 @@ export default function App() {
         setShowProduct(true)
     }
 
-    // const [product, setProduct] = React.useState({
-    //     productName: "",
-    //     productPrice: 0,
-    //     productImage: ""
-        
-    // })
-
-    // const [showProductPage, setShowProduct] = React.useState(false)
-
-    // function showProduct(name, priceCents, image) {
-    //     setProduct({
-    //         productName: name,
-    //         productPrice: priceCents,
-    //         productImage: image
-
-            
-            
-    //     })
-    //     // console.log(name, priceCents, image, 'func')
-
-    //     setShowProduct(true)
-    // }
-    // // console.log(product)
-
-    // // console.log(showProductPage)
 
     // Add to cart function
     function addToCart(id, name, priceCents, image) {
@@ -105,65 +82,55 @@ export default function App() {
 
     
     // Add to wishlist function
+
     function addToWishlist(id, name, priceCents, image) {
-        // console.log(id)
-        let matchingItem;
-
-        wishlist.map(item => {
-            if(id === item.productId) {
-                matchingItem = item;
-            }
-            }
-        )
-
-        if(matchingItem) {
-            // matchingItem.quantity += 1;
-            console.log("item already in wishlist")
-        }
-
-        else {
-            setWishlist(prevWishlist => [{
-                productId:id, 
-                productName: name, 
-                productPrice: priceCents,
-                productImage: image
-                }, ...prevWishlist])
+        let matchingItem = wishlist.find(item => item.productId === id);
+    
+        if (matchingItem) {
+            // Item already in wishlist, remove it
+            setWishlist(prevWishlist => prevWishlist.filter(item => item.productId !== id));
+        } else {
+            // Item not in wishlist, add it
+            setWishlist(prevWishlist => [
+                ...prevWishlist,
+                {
+                    productId: id,
+                    productName: name,
+                    productPrice: priceCents,
+                    productImage: image,
+                },
+            ]);
         }
     }
+    
+
+    // function addToWishlist(id, name, priceCents, image) {
+    //     // console.log(id)
+    //     let matchingItem;
+
+    //     wishlist.map(item => {
+    //         if(id === item.productId) {
+    //             matchingItem = item;
+    //         }
+    //         }
+    //     )
+
+    //     if(matchingItem) {
+    //         // matchingItem.quantity += 1;
+    //         console.log("item already in wishlist")
+    //     }
+
+    //     else {
+    //         setWishlist(prevWishlist => [{
+    //             productId:id, 
+    //             productName: name, 
+    //             productPrice: priceCents,
+    //             productImage: image
+    //             }, ...prevWishlist])
+    //     }
+    // }
 
 
-
-
-
-    // Maps products to the main product grid
-    const productGrid = productsData.map(item => (
-        <MainBody 
-            key={item.id}
-            id={item.id}
-            name={item.name}
-            image={item.image}
-            priceCents={item.priceCents}
-
-            ratingCount={item.rating.count}
-            ratingStars={`./ratings/rating-${item.rating.stars * 10}.png`}
-            // ratingStars={`./rating-${item.rating.stars} * 10.png`}
-            // passes the 2 add functions as props to each product card
-            handleClick={addToCart}
-            wishlistClick={addToWishlist}
-            handleProductClick={showProd}
-
-            
-
-            // productPageStopScroll={productPageStopScroll}
-            />
-    ))
-
-    // productsData.map(item => (
-    //     console.log(`./ratings/rating-${item.rating.stars * 10}`)
-    // ))
-
-    // console.log(`./rating-${productsData.rating.stars *  10}.png`)
-    // console.log(productsData.rating)
 
 
 
@@ -257,18 +224,41 @@ export default function App() {
             wishlistClick={addToWishlist}
 
             handleProductClick={showProd}
+
+            CartScroll={CartStopScroll}
+            superFunction={superFunc}
         />
     ))
 
-    // const [doCheckout, setDoCheckout] = React.useState(false)
+    // Maps products to the main product grid
+    const productGrid = productsData.map(item => (
+        <MainBody 
+            key={item.id}
+            id={item.id}
+            name={item.name}
+            image={item.image}
+            priceCents={item.priceCents}
 
-    // finally the return, puts everything on the page
+            ratingCount={item.rating.count}
+            ratingStars={`./ratings/rating-${item.rating.stars * 10}.png`}
+            // ratingStars={`./rating-${item.rating.stars} * 10.png`}
+            // passes the 2 add functions as props to each product card
+            handleClick={addToCart}
+            wishlistClick={addToWishlist}
+            handleProductClick={showProd}
 
+            CartScroll={CartStopScroll}
+            superFunction={superFunc}
+
+            // productPageStopScroll={productPageStopScroll}
+            />
+    ))
 
     // determines whether to show product--grid when cart is toggled on
     const [CartScroll, setCartScroll] = React.useState(true)
     const [WishlistScroll, setWishlistScroll] = React.useState(true)
     const [CheckoutScroll, setCheckoutScroll] = React.useState(true)
+
     // const [productPageScroll, setProductPageScroll] = React.useState(true)
 
     // RIGHT THIS IS HOW THIS WORKS, WHEN FOR EXAMPLE THE CART IS TOGGLED ON, THE ONCLICK PASSES THE INITIAL STATE
@@ -278,9 +268,14 @@ export default function App() {
     // superFunc TOGGLES ALL TRUE VALUES TO FALSE SO THAT IT DOESNT MATTER WHICH FEATURE IS TOGGLED ON, PRODUCT--GRID
     // IS UNMOUNTED EITHER WAY
 
+    function prodScroll() {
+        setCartScroll(true)
+        console.log(`prod is ${CartScroll}`)
+    }
+
     function CartStopScroll(toShowCart) {
         setCartScroll(toShowCart)
-        console.log(CartScroll)
+        // console.log('called')
     }
 
     function WishlistStopScroll(toShowWishlist) {
@@ -291,19 +286,12 @@ export default function App() {
         setCheckoutScroll(toShowCheckout)
     }
 
-    // function productPageStopScroll(noShow) {
-    //     setProductPageScroll(noShow)
-    // }
-
-    // A function that calls all three functions, pass is as props and when either one of the features is toggled, it calls the function that will make all three false
-
-    // toggle all three if one is toggled
-
     function superFunc() {
         CartStopScroll()
         WishlistStopScroll()
         CheckoutStopScroll()
 
+        // console.log('super')
         // productPageStopScroll()
     }
     
@@ -322,33 +310,32 @@ export default function App() {
                 searchSubmit={formSubmit}
                 
                 superFunction={superFunc}
-
                 CartScroll={CartStopScroll}
+                HomeScroll={prodScroll}
+
                 WishlistScroll={WishlistStopScroll}
                 CheckoutScroll={CheckoutStopScroll}
                 />
 
             {showProductPageBool && (
-                    <ProductPage 
-                        prodName={productToShow.prodName}
-                        prodImage={productToShow.prodImage}
-                        prodPrice={productToShow.prodPrice}
-                        prodId={productToShow.prodId}
-                        showProd={setShowProduct}
+                <ProductPage 
+                    prodName={productToShow.prodName}
+                    prodImage={productToShow.prodImage}
+                    prodPrice={productToShow.prodPrice}
+                    prodId={productToShow.prodId}
+                    showProd={setShowProduct}
 
-                        ratingCount={productToShow.prodRating}
-                        ratingStars={productToShow.prodStarsImage}
+                    ratingCount={productToShow.prodRating}
+                    ratingStars={productToShow.prodStarsImage}
 
-                        handleClick={addToCart}
-                        wishlistClick={addToWishlist}
+                    handleClick={addToCart}
+                    wishlistClick={addToWishlist}
 
-                        // superFunction={superFunc}
-                    />
-                
-            )}
+                    CartScroll={prodScroll}
+            />)}
 
 
-            {submitted === true ? ((CartScroll || WishlistScroll || CheckoutScroll) && (
+            {submitted === true ? ((CartScroll || WishlistScroll || CheckoutScroll) ? (
             <>
                 <button className="close--button end--search--button" onClick={() => setSubmitted(false)}>End search
                 <span className="material-symbols-rounded">close</span>
@@ -357,75 +344,19 @@ export default function App() {
                 {searchGrid}
                 </div>
             </>
-            )
+            ) : (<div className="overlay"></div>)
             ) : (
-            (CartScroll || WishlistScroll || CheckoutScroll) && (
-                <section className="product--grid">
-                {productGrid}
-                </section>
-            )
-            )}
-
-            {/* insert overlay for partial feature screen cover */}
-
-
-                {/*
-            {submitted === true ? (
+            (CartScroll || WishlistScroll || CheckoutScroll) ? (
                 <>
-                    <button className="close--button end--search--button" onClick={()=>setSubmitted(false)}>
-                        <span className="material-icons">close</span>
-                    </button>
-                    <div className="product--grid">
-                        
-                        {searchGrid}
-                    </div> 
-                </>
-            ) : ( {CartScroll || WishlistScroll || CheckoutScroll ? (
-                <section className="product--grid">
+                    <Banner />
+                    <section className="product--grid">
                     {productGrid}
-                </section>
-            ) : null}
-                
+                    </section>
+                </>
+            ) : (<div className="overlay"></div>)
             )}
-            */}
 
-
-
-
-            {/* pass the state of showcart from the header when cart button is pressed,
-            App.jsx then uses  the state to determine whether to show product--grid or not depending on whether show cart is true or false */}
-            
-            
+            <Footer />
         </main>
     )
 }
-
-
-// {submitted === true ? 
-//     <div className="product--grid">
-//         <button onClick={()=>setSubmitted(false)}>End Search</button>
-//         {searchGrid}
-//     </div> 
-//     : 
-//     <section className="product--grid">
-//         {productGrid}
-//     </section>}
-
-//     {searchResult.length === 0 ? 
-//         <div>
-//             Nothing here
-//         </div>
-//     :
-    
-
-
-//     submitted === true ? 
-//     <div className="product--grid">
-//         <button onClick={()=>setSubmitted(false)}>End Search</button>
-//         {searchGrid}
-//     </div> 
-//     : 
-//     <section className="product--grid">
-//         {productGrid}
-//     </section>
-//     }

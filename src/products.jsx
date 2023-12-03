@@ -7,7 +7,7 @@ export const products = [
       "stars": 4.5,
       "count": 87
     },
-    "priceCents": 1090,
+    "priceCents": 1099,
     "keywords": [
       "socks",
       "sports",
@@ -22,7 +22,7 @@ export const products = [
       "stars": 4,
       "count": 127
     },
-    "priceCents": 2095,
+    "priceCents": 205,
     "keywords": [
       "sports",
       "basketballs"
@@ -53,7 +53,7 @@ export const products = [
       "stars": 5,
       "count": 2197
     },
-    "priceCents": 1899,
+    "priceCents": 3899,
     "keywords": [
       "toaster",
       "kitchen",
@@ -83,7 +83,7 @@ export const products = [
       "stars": 4.5,
       "count": 175
     },
-    "priceCents": 3499,
+    "priceCents": 10009,
     "keywords": [
       "kitchen",
       "cookware"
@@ -97,7 +97,7 @@ export const products = [
       "stars": 4.5,
       "count": 317
     },
-    "priceCents": 2400,
+    "priceCents": 1100,
     "keywords": [
       "hoodies",
       "sweaters",
@@ -112,7 +112,7 @@ export const products = [
       "stars": 4.5,
       "count": 144
     },
-    "priceCents": 3599,
+    "priceCents": 959,
     "keywords": [
       "bathroom",
       "washroom",

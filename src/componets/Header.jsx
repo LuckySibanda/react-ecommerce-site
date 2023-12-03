@@ -26,9 +26,13 @@ export default function Header(props) {
 		setToShowCheckout(false);
 	}
 
-	// const styles = {
-	//   overflow: toShowCart === 'true' ? 'hidden' : 'visible'
-	// }
+	const wishlistStyles = {
+		display: props.wishlistArray.length > 0 ? 'block' : 'none',
+	}
+
+	const cartStyles = {
+		display: props.cartArray.length > 0 ? 'block' : 'none',
+	}
 
 	return (
 		<>
@@ -36,7 +40,7 @@ export default function Header(props) {
 				<div className="logo--container">
 					{/* add just the name 'Shop.com/ burger menu on mobile/' on pc put logo */}
 					{/* <span className="material-icons business--logo">shopping_cart</span> */}
-					<h3>Shop.com</h3>
+					<h3>SHOP.COM</h3>
 				</div>
 
 				<form onSubmit={props.searchSubmit} className="search--box--container">
@@ -58,7 +62,7 @@ export default function Header(props) {
 				<div className="toggle--buttons">
 
 					{/* home button */}
-					<button>
+					<button onClick={props.HomeScroll}>
 						{/* closes everything and display home page */}
 						<span className="material-symbols-rounded"
 						onClick={goHome}>
@@ -75,6 +79,7 @@ export default function Header(props) {
 							>
 								shopping_cart
 							</span>
+							<div style={cartStyles}  className="cart--icon--count notification">{props.cartCount}</div>
 						</button>
 					</span>
 
@@ -100,6 +105,7 @@ export default function Header(props) {
 							>
 								favorite
 							</span>
+							<div style={wishlistStyles} className="wishlist--notification notification"></div>
 						</button>
 					</span>
 				</div>
@@ -110,7 +116,6 @@ export default function Header(props) {
 				{toShowWishlist &&
 					(props.wishlistArray.length > 0 ? (
 						<>
-							{/* <div className="overlay" onClick={showWishlist}></div> */}
 							<div className="wishlist">
 								<div className="wishlist--header">
 									<h2>wishlist</h2>
@@ -134,7 +139,8 @@ export default function Header(props) {
 											</div>
 
 											<div className="wishlist--product--price action--product--extras">
-												R {item.productPrice}
+												{/* R {item.productPrice} */}
+												R {(Number(item.productPrice) / 10).toFixed(2)}
 											</div>
 										</div>
 									))}
@@ -144,14 +150,14 @@ export default function Header(props) {
 					) : (
 						<div className="empty--wishlist empty--error">
 							<button className="close--button" onClick={showWishlist}>
-								<span className="material-icons" 
+								<span className="material-symbols-rounded" 
 								onClick={() => props.WishlistScroll(toShowWishlist)}>
 									close
 								</span>
 							</button>
 
 							<div className="empty--wishlist--message empty--list--message">
-								Nothing in your Wishlist
+								<h2>Nothing in your Wishlist</h2>
 							</div>
 						</div>
 				))}
@@ -168,8 +174,10 @@ export default function Header(props) {
 						<>
 							{/* <div className="overlay" onClick={showCart}></div> */}
 							<div className="cart">
+
 								<div className="cart--header">
 									<h2>Cart</h2>
+
 									<div>
 										<button className="close--button" onClick={showCart}>
 											<span
@@ -180,7 +188,10 @@ export default function Header(props) {
 											</span>
 										</button>
 									</div>
+
 								</div>
+
+
 								<div className="cart--count">{props.cartCount} Items</div>
 
 								<div className="cart--product--list">
@@ -201,7 +212,8 @@ export default function Header(props) {
 													</div>
 
 													<div className="cart--product--price action--product--extras">
-														R {item.productPrice}
+														{/* R {item.productPrice} */}
+														R {(Number(item.productPrice) / 10).toFixed(2)}
 													</div>
 
 													<div className="cart--product--quantity action--product--extras">
@@ -225,7 +237,7 @@ export default function Header(props) {
 					) : (
 						<div className="empty--cart empty--error">
 							<button className="close--button" onClick={showCart}>
-								<span className="material-icons"
+								<span className="material-symbols-rounded"
 								onClick={() => props.CartScroll(toShowCart)}>
 									close
 								</span>
@@ -260,7 +272,7 @@ export default function Header(props) {
 								{props.cartArray.map((item) => (
 									<div key={item.productId}>
 										{/* slightly different line to separate things */}
-										<hr />
+										{/* <hr /> */}
 
 										<div className="checkout--product--card action--product--card">
 											<div className="checkout--product--image--container action--product--card--img--container">
@@ -275,7 +287,8 @@ export default function Header(props) {
 												</div>
 
 												<div className="checkout--product--price action--product--extras">
-													{item.productPrice}
+													{/* {item.productPrice} */}
+													R {(Number(item.productPrice) / 10).toFixed(2)}
 												</div>
 
 												<div className="checkout--product--quantity action--product--extras">
@@ -291,15 +304,15 @@ export default function Header(props) {
 
 							<section className="total--amount--section">
 								<div className="display--cart--total">
-									<span>Total: ({props.cartCount})</span>
-									<span>Checkout Items: {props.cartAmount}</span>
+									<span>Total: <span style={{ fontWeight: 'bold' }}>({props.cartCount})</span></span>
+									<span>Checkout Items: <span style={{ fontWeight: 'bold' }}>R{(Number(props.cartAmount) / 10).toFixed(2)}</span></span>
 								</div>
 							</section>
 						</div>
 					) : (
 						<div className="empty--checkout empty--error">
 							<button className="close--button" onClick={showCheckout}>
-								<span className="material-icons"
+								<span className="material-symbols-rounded"
 								onClick={() => props.CheckoutScroll(toShowCheckout)}>
 									close
 								</span>
@@ -327,6 +340,7 @@ Header.propTypes = {
 	CartScroll: PropTypes.func.isRequired,
 	WishlistScroll: PropTypes.func.isRequired,
 	CheckoutScroll: PropTypes.func.isRequired,
+	HomeScroll: PropTypes.func.isRequired,
 
 	cartCount: PropTypes.number.isRequired,
 	cartAmount: PropTypes.number.isRequired,
