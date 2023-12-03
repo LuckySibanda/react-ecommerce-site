@@ -43,7 +43,6 @@ export default function MainBody(props) {
 				</span>
 
 				<div className="product--price">
-					{/* R {props.priceCents /10} */}
 					R {price}
 				</div>
 			</div>
@@ -91,7 +90,6 @@ MainBody.propTypes = {
 	ratingStars: PropTypes.string.isRequired,
 
 	ratingCount: PropTypes.number.isRequired,
-	// ratingStars: PropTypes.string.isRequired,
 };
 
 

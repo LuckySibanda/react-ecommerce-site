@@ -6,13 +6,9 @@ import Banner from "./Banner"
 import SearchResults from "./SearchedItems"
 import ProductPage from "./componets/Product-page"
 import Footer from "./componets/Footer"
-// import Checkout from "./componets/Checkout"
-// import Categories from "./componets/Categories"
 
 export default function App() {
-
-    // const [productsData, setProductsData] = React.useState(products)
-
+    
     const productsData = products
 
     const [cart, setCart] = React.useState([])
@@ -34,6 +30,7 @@ export default function App() {
 
     const [showProductPageBool, setShowProduct] = React.useState(false)
 
+    // Function showing clicked on product
     function showProd(name, image, priceCents, id, ratingCount, ratingStars) {
         setProductToShow({
             prodName: name,
@@ -43,14 +40,12 @@ export default function App() {
             prodRating: ratingCount,
             prodStarsImage: ratingStars
         })
-        // superFunc()
         setShowProduct(true)
     }
 
 
     // Add to cart function
     function addToCart(id, name, priceCents, image) {
-        // console.log(id)
         let matchingItem;
 
         cart.map(item => {
@@ -82,7 +77,6 @@ export default function App() {
 
     
     // Add to wishlist function
-
     function addToWishlist(id, name, priceCents, image) {
         let matchingItem = wishlist.find(item => item.productId === id);
     
@@ -102,40 +96,12 @@ export default function App() {
             ]);
         }
     }
-    
-
-    // function addToWishlist(id, name, priceCents, image) {
-    //     // console.log(id)
-    //     let matchingItem;
-
-    //     wishlist.map(item => {
-    //         if(id === item.productId) {
-    //             matchingItem = item;
-    //         }
-    //         }
-    //     )
-
-    //     if(matchingItem) {
-    //         // matchingItem.quantity += 1;
-    //         console.log("item already in wishlist")
-    //     }
-
-    //     else {
-    //         setWishlist(prevWishlist => [{
-    //             productId:id, 
-    //             productName: name, 
-    //             productPrice: priceCents,
-    //             productImage: image
-    //             }, ...prevWishlist])
-    //     }
-    // }
-
 
 
 
 
     
-    // Stores product search value
+    // Stores input search value
     const [searchValue, setSearchValue] = React.useState({
         productSearch: ''
     })
@@ -155,13 +121,13 @@ export default function App() {
 
 
 
-    // boolean for searching products
+    // Check if search is clicked
     const [submitted, setSubmitted] = React.useState(false)
 
 
 
 
-    // Function to handle form submit or search button click
+    // Function to handle form submit / search button click
     function formSubmit(event) {
         event.preventDefault()
 
@@ -178,35 +144,26 @@ export default function App() {
 
 
 
-    //  Function to search an array of product objects and get ones that meet the search
+    // Function to search an array of product objects and get ones that meet the search
     function showSearchResults() {
         let searchItems = []
         productsData.map(item => {
             if(item.keywords.includes(searchValue.productSearch)) {
-            // if(item.keywords.includes('kitchen')) {
                 searchItems.push(item)
                 setSearchResult(searchItems)
                 
             }
-
-            // else if(kitchen ) {
-            //     searchItems.push(item)
-            //     setSearchResult(searchItems)
-            // }
         })
 
         if (searchItems.length === 0) {
             console.log("nothing here")
-            // <div>
-            //     Nothing here
-            // </div>
         }
     }
 
 
 
 
-    // Map items in searchArray to component to be grided
+    // Map items in searchArray to component to be displayed
     const searchGrid = searchResult.map(item => (
         <SearchResults
 
@@ -219,7 +176,6 @@ export default function App() {
             ratingCount={item.rating.count}
             ratingStars={`./ratings/rating-${item.rating.stars * 10}.png`}
 
-            // passes the 2 add functions to each product card
             handleClick={addToCart}
             wishlistClick={addToWishlist}
 
@@ -241,16 +197,13 @@ export default function App() {
 
             ratingCount={item.rating.count}
             ratingStars={`./ratings/rating-${item.rating.stars * 10}.png`}
-            // ratingStars={`./rating-${item.rating.stars} * 10.png`}
-            // passes the 2 add functions as props to each product card
+
             handleClick={addToCart}
             wishlistClick={addToWishlist}
             handleProductClick={showProd}
 
             CartScroll={CartStopScroll}
             superFunction={superFunc}
-
-            // productPageStopScroll={productPageStopScroll}
             />
     ))
 
@@ -266,8 +219,9 @@ export default function App() {
     // HERE CartScroll IS INITIALLY TRUE WHICH MEANS THE PRODUCT--GRID IS RENDERED UNTIL YOUR TOGGLE THE CART WHICH RUNS
     // CartStopScroll THAT FLIPS CartScroll TO FALSE AND PRODUCT--GRID IS UNMOUNTED/NOT SHOWN
     // superFunc TOGGLES ALL TRUE VALUES TO FALSE SO THAT IT DOESNT MATTER WHICH FEATURE IS TOGGLED ON, PRODUCT--GRID
-    // IS UNMOUNTED EITHER WAY
+    // IS UNMOUNTED EITHER WAY.
 
+    // Mounts product--grid on to the display
     function prodScroll() {
         setCartScroll(true)
         console.log(`prod is ${CartScroll}`)
@@ -275,7 +229,6 @@ export default function App() {
 
     function CartStopScroll(toShowCart) {
         setCartScroll(toShowCart)
-        // console.log('called')
     }
 
     function WishlistStopScroll(toShowWishlist) {
@@ -286,18 +239,17 @@ export default function App() {
         setCheckoutScroll(toShowCheckout)
     }
 
+    
     function superFunc() {
         CartStopScroll()
         WishlistStopScroll()
         CheckoutStopScroll()
-
-        // console.log('super')
-        // productPageStopScroll()
     }
     
 
     return (
         <main>
+            {/* Header Component */}
             <Header
                 productSearchValue={searchValue.productSearch}
                 // passing 2 arrays as props to the header component
@@ -317,6 +269,7 @@ export default function App() {
                 CheckoutScroll={CheckoutStopScroll}
                 />
 
+            {/* If product is clicked show clicked product */}
             {showProductPageBool && (
                 <ProductPage 
                     prodName={productToShow.prodName}
@@ -335,6 +288,7 @@ export default function App() {
             />)}
 
 
+            {/* Unmounts product--grid when extra features are mounted to stop the user from scrolling */}
             {submitted === true ? ((CartScroll || WishlistScroll || CheckoutScroll) ? (
             <>
                 <button className="close--button end--search--button" onClick={() => setSubmitted(false)}>End search

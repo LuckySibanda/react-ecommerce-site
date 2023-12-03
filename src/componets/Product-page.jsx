@@ -1,9 +1,6 @@
-import React from "react";
 import PropTypes from "prop-types";
 
 export default function ProductPage(props) {
-
-    // const [toShowCart, setToShowCart] = React.useState(false);
 
     const price = (props.prodPrice / 10).toFixed(2)
 
@@ -17,7 +14,6 @@ export default function ProductPage(props) {
             <div className="product--page--header">
 
                 <div className="logo--container">
-                    {/* <span className="material-symbols-rounded business--logo">shopping_cart</span> */}
                     <h5>Shop.com</h5>
                 </div>
 
@@ -31,16 +27,6 @@ export default function ProductPage(props) {
                         </span>
                     </button>
                 </div>
-
-                {/* <button className="close--button" onClick={() => props.showProd(false)}>
-                    <span
-                        onClick={() => props.CartScroll(toShowCart)}
-                        className="material-symbols-rounded"
-                    >
-                        close
-                    </span>
-                </button> */}
-
             </div>
 
             <div className="product--page--body">
@@ -91,8 +77,6 @@ export default function ProductPage(props) {
                         </div>
                     </div>
                 </div>
-                {/* <div className="overlay" onClick={()=>props.overlayFunc(trueState)}>
-        </div> */}
             </div>
 
             <button
@@ -121,8 +105,4 @@ ProductPage.propTypes = {
     wishlistClick: PropTypes.func.isRequired,
 
     CartScroll: PropTypes.func.isRequired,
-
-    // overlayFunc: PropTypes.func.isRequired,
 };
-
-// image and price have switched values fix that, check order of paramms
