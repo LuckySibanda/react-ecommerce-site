@@ -377,7 +377,7 @@ h2 {
 	display: flex;
 	width: 70%;
 	height: auto;
-	
+
 	object-fit: contain;
 	margin: 0 auto;
 	cursor: pointer;
@@ -651,8 +651,8 @@ main {
 	background: -webkit-linear-gradient(45deg, hsla(141, 54%, 86%, 1) 0%, hsla(333, 73%, 85%, 1) 50%, hsla(211, 58%, 79%, 1) 100%);
 	display: flex;
 	width: 100%;
-	margin: 2rem 0 0 0;
-	padding: 20px 2rem;
+	margin: 2.1rem 0;
+	padding: 0 2rem;
 	justify-content: space-between;
 	overflow: hidden;
 }
