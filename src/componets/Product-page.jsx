@@ -8,86 +8,86 @@ export default function ProductPage(props) {
 
     return (
         <>
-        <div className="overlay"></div>
-        <div className="product--page">
+            <div className="overlay"></div>
+            <div className="product--page">
 
-            <div className="product--page--header">
+                <div className="product--page--header">
 
-                <div className="logo--container">
-                    <h5>Shop.com</h5>
-                </div>
+                    <div className="logo--container">
+                        <h5>Shop.com</h5>
+                    </div>
 
-                <div>
-                    <button className="close--button" onClick={() => props.showProd(false)}>
-                        <span
-                            onClick={props.CartScroll}
-                            className="material-symbols-rounded"
-                        >
-                            close
-                        </span>
-                    </button>
-                </div>
-            </div>
-
-            <div className="product--page--body">
-                <div className="product--page--image--container">
-                    <img src={props.prodImage} alt="Product image" />
-                </div>
-
-                <div className="product--page--information">
-                    <div className="sub--header">
-                        <div className="product--page--name">{props.prodName}</div>
-
-                        <button
-                            className="product--page--close--button"
-                            onClick={() =>
-                                props.wishlistClick(
-                                    props.prodId,
-                                    props.prodName,
-                                    props.prodPrice,
-                                    props.prodImage
-                                )
-                            }
-                        >
-                            {/* Wishlist */}
-                            <span className="material-symbols-rounded wishlist-icon">
-                                favorite
+                    <div>
+                        <button className="close--button" onClick={() => props.showProd(false)}>
+                            <span
+                                onClick={props.CartScroll}
+                                className="material-symbols-rounded"
+                            >
+                                close
                             </span>
                         </button>
                     </div>
+                </div>
 
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex ratione
-                        quod corporis numquam beatae veritatis incidunt itaque animi minima?
-                        Sit nemo hic itaque impedit ducimus ea reprehenderit eaque libero
-                        accusantium.
-                    </p>
+                <div className="product--page--body">
+                    <div className="product--page--image--container">
+                        <img src={props.prodImage} alt="Product image" />
+                    </div>
 
-                    <div className="product--page--prod--info">
-                        <div className="product--page--price">
-                            <span style={{ textDecoration: 'line-through' }}>R {price}</span>
-                            <span>   R {sale}</span>
+                    <div className="product--page--information">
+                        <div className="sub--header">
+                            <div className="product--page--name">{props.prodName}</div>
+
+                            <button
+                                className="product--page--close--button"
+                                onClick={() =>
+                                    props.wishlistClick(
+                                        props.prodId,
+                                        props.prodName,
+                                        props.prodPrice,
+                                        props.prodImage
+                                    )
+                                }
+                            >
+                                {/* Wishlist */}
+                                <span className="material-symbols-rounded wishlist-icon">
+                                    favorite
+                                </span>
+                            </button>
                         </div>
 
-                        <div className="ratings--info-container">
-                            <div className="stars--container">
-                                <img src={props.ratingStars} alt="" />
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex ratione
+                            quod corporis numquam beatae veritatis incidunt itaque animi minima?
+                            Sit nemo hic itaque impedit ducimus ea reprehenderit eaque libero
+                            accusantium.
+                        </p>
+
+                        <div className="product--page--prod--info">
+                            <div className="product--page--price">
+                                <span style={{ textDecoration: 'line-through' }}>R {price}</span>
+                                <span>   R {sale}</span>
                             </div>
-                            <div>Ratings: {props.ratingCount}</div>
+
+                            <div className="ratings--info-container">
+                                <div className="stars--container">
+                                    <img src={props.ratingStars} alt="" />
+                                </div>
+                                <div>Ratings: {props.ratingCount}</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <button
-                className="product--page--addtocart"
-                onClick={() =>
-                    props.handleClick(props.prodId, props.prodName, props.prodPrice, props.prodImage)
-                }
-            >
-                Add to cart
-            </button>
-        </div>
+                <button
+                    className="product--page--addtocart"
+                    onClick={() =>
+                        props.handleClick(props.prodId, props.prodName, props.prodPrice, props.prodImage)
+                    }
+                >
+                    Add to cart
+                </button>
+            </div>
         </>
     );
 }

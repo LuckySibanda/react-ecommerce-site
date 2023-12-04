@@ -10,36 +10,36 @@ export default function MainBody(props) {
 	return (
 		<div className="product--card">
 
-				<span onClick={props.superFunction}>
-					<span onClick={() => props.CartScroll(toShowCart)}>
-						<div className="product--image--container"
+			<span onClick={props.superFunction}>
+				<span onClick={() => props.CartScroll(toShowCart)}>
+					<div className="product--image--container"
+						onClick={() =>
+							props.handleProductClick(props.name, props.image, props.priceCents, props.id, props.ratingCount, props.ratingStars)}>
+						<img className="product--image"
 							onClick={() =>
-								props.handleProductClick(props.name, props.image, props.priceCents, props.id, props.ratingCount, props.ratingStars)}>
-								<img className="product--image"
-									onClick={() =>
-										props.handleProductClick(props.name, props.image, props.priceCents, props.id, props.ratingCount, props.ratingStars)}
-									src={props.image}
-									alt="Image of product" />
+								props.handleProductClick(props.name, props.image, props.priceCents, props.id, props.ratingCount, props.ratingStars)}
+							src={props.image}
+							alt="Image of product" />
 
-								<div className="sale--div">50% OFF</div>
-						</div>
-					</span>
+						<div className="sale--div">50% OFF</div>
+					</div>
 				</span>
+			</span>
 
-				<hr className="image--line" />
+			<hr className="image--line" />
 
 
 			<div className="product--information">
-				
+
 				<span onClick={props.superFunction}>
-				<span onClick={() => props.CartScroll(toShowCart)}>
-				<div className="product--name"
-					onClick={() =>
-						props.handleProductClick(props.name, props.image, props.priceCents, props.id, props.ratingCount, props.ratingStars)}
+					<span onClick={() => props.CartScroll(toShowCart)}>
+						<div className="product--name"
+							onClick={() =>
+								props.handleProductClick(props.name, props.image, props.priceCents, props.id, props.ratingCount, props.ratingStars)}
 						>
-					{props.name}
-				</div>
-				</span>
+							{props.name}
+						</div>
+					</span>
 				</span>
 
 				<div className="product--price">
@@ -80,7 +80,7 @@ MainBody.propTypes = {
 
 	CartScroll: PropTypes.func.isRequired,
 	superFunction: PropTypes.func.isRequired,
-	
+
 
 	id: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,

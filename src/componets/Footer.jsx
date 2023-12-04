@@ -1,35 +1,40 @@
 export default function Footer() {
-    return(
-        <section className="footer">
-            <div className="footer--information">
-                <div className="company--name">
-                    SHOP.COM
-                </div>
+	return (
+		<section className="footer">
+			<div className="footer--information">
+				<div className="company--name">
+					SHOP.COM
+				</div>
 
-                <div className="social--media">
-                    <img src="./icons/facebook.svg" alt="facebook" className="social--media--icon" />
-                    <img src="./icons/instagram.svg" alt="twitter" className="social--media--icon" />
-                    <img src="./icons/tiktok.svg" alt="instagram" className="social--media--icon" />
-                    <img src="./icons/twitter.svg" alt="tik tok" className="social--media--icon" />
-                </div>
+				<div className="social--media">
+					<a href="https://www.facebook.com/kuylsibanda" target="_blank" rel="noopener noreferrer">
+						<img src="./icons/facebook.svg" alt="Facebook" className="social--media--icon" />
+					</a>
+					<a href="https://www.instagram.com/kuyl.dev" target="_blank" rel="noopener noreferrer">
+						<img src="./icons/instagram.svg" alt="Instagram" className="social--media--icon" />
+					</a>
+					<a href="https://www.tiktok.com/@luckysib.dev" target="_blank" rel="noopener noreferrer">
+						<img src="./icons/tiktok.svg" alt="TikTok" className="social--media--icon" />
+					</a>
+					<a href="https://www.twitter.com/KuylSib_dev" target="_blank" rel="noopener noreferrer">
+						<img src="./icons/twitter.svg" alt="Twitter" className="social--media--icon" />
+					</a>
+				</div>
+			</div>
 
-            </div>
+			<div className="legal--stuff">
+				<div>
+					&copy; Copyright Shop.com Pty Ltd.
+				</div>
+				<div>This is a demo website.</div>
+				<div>
+					All rights reserved. Shop.com is not a registered entity.
+				</div>
+				<div>
+					Privacy: POPIA Act of 2020 Compliance
+				</div>
+			</div>
+		</section>
 
-                
-
-            <div className="legal--stuff">
-                <div>
-                &copy; Copyright Shop.com pty LTD.
-                </div>
-                <div>This Is A Demo Website</div>
-                <div>
-                    All Rights Reserved Shop.com Is Not A Registered Entity. 
-                </div>
-                <div>
-                    Privacy: POPIA ACT OF 2020 SOMETHING
-                </div>
-            </div>
-                
-        </section>
-    )
+	)
 }

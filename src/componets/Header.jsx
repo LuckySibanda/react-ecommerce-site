@@ -65,7 +65,7 @@ export default function Header(props) {
 					<button onClick={props.HomeScroll}>
 						{/* closes everything and display home page */}
 						<span className="material-symbols-rounded"
-						onClick={goHome}>
+							onClick={goHome}>
 							home
 						</span>
 					</button>
@@ -79,7 +79,7 @@ export default function Header(props) {
 							>
 								shopping_cart
 							</span>
-							<div style={cartStyles}  className="cart--icon--count notification">{props.cartCount}</div>
+							<div style={cartStyles} className="cart--icon--count notification">{props.cartCount}</div>
 						</button>
 					</span>
 
@@ -150,8 +150,8 @@ export default function Header(props) {
 					) : (
 						<div className="empty--wishlist empty--error">
 							<button className="close--button" onClick={showWishlist}>
-								<span className="material-symbols-rounded" 
-								onClick={() => props.WishlistScroll(toShowWishlist)}>
+								<span className="material-symbols-rounded"
+									onClick={() => props.WishlistScroll(toShowWishlist)}>
 									close
 								</span>
 							</button>
@@ -160,7 +160,7 @@ export default function Header(props) {
 								<h2>Nothing in your Wishlist</h2>
 							</div>
 						</div>
-				))}
+					))}
 
 
 
@@ -238,7 +238,7 @@ export default function Header(props) {
 						<div className="empty--cart empty--error">
 							<button className="close--button" onClick={showCart}>
 								<span className="material-symbols-rounded"
-								onClick={() => props.CartScroll(toShowCart)}>
+									onClick={() => props.CartScroll(toShowCart)}>
 									close
 								</span>
 							</button>
@@ -312,7 +312,7 @@ export default function Header(props) {
 						<div className="empty--checkout empty--error">
 							<button className="close--button" onClick={showCheckout}>
 								<span className="material-symbols-rounded"
-								onClick={() => props.CheckoutScroll(toShowCheckout)}>
+									onClick={() => props.CheckoutScroll(toShowCheckout)}>
 									close
 								</span>
 							</button>
