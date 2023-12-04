@@ -7,6 +7,8 @@ export default function MainBody(props) {
 
 	const price = (props.priceCents / 10).toFixed(2)
 
+	const sale = ((props.priceCents / 10) * 0.5).toFixed(2)
+
 	return (
 		<div className="product--card">
 
@@ -43,7 +45,8 @@ export default function MainBody(props) {
 				</span>
 
 				<div className="product--price">
-					R {price}
+					<span style={{ textDecoration: 'line-through' }}>R {price}</span>
+					<span>   R {sale}</span>
 				</div>
 			</div>
 

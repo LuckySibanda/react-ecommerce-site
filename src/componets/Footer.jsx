@@ -3,7 +3,7 @@ export default function Footer() {
 		<section className="footer">
 			<div className="footer--information">
 				<div className="company--name">
-					SHOP.COM
+					CASH SPLASH
 				</div>
 
 				<div className="social--media">
@@ -24,11 +24,11 @@ export default function Footer() {
 
 			<div className="legal--stuff">
 				<div>
-					&copy; Copyright Shop.com Pty Ltd.
+					&copy; Copyright CASH SPLASH Pty Ltd.
 				</div>
 				<div>This is a demo website.</div>
 				<div>
-					All rights reserved. Shop.com is not a registered entity.
+					All rights reserved. CASH SPLASH is not a registered entity.
 				</div>
 				<div>
 					Privacy: POPIA Act of 2020 Compliance

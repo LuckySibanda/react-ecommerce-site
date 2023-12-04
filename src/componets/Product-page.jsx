@@ -14,7 +14,7 @@ export default function ProductPage(props) {
                 <div className="product--page--header">
 
                     <div className="logo--container">
-                        <h5>Shop.com</h5>
+                        <h5>CASH SPLASH</h5>
                     </div>
 
                     <div>
@@ -57,10 +57,7 @@ export default function ProductPage(props) {
                         </div>
 
                         <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex ratione
-                            quod corporis numquam beatae veritatis incidunt itaque animi minima?
-                            Sit nemo hic itaque impedit ducimus ea reprehenderit eaque libero
-                            accusantium.
+                        Introducing the ultimate marvel of modern consumerism - our Generic Product! Crafted with the finest blend of mediocrity and unremarkable design, this product is the epitome of Meh. Imagine a world where excitement goes to die, and thats where our Generic Product shines. With a design so unassuming, its practically invisible in your daily life. It neither soars to great heights nor plummets to the depths of disappointment. Its the Goldilocks of products, just bland enough to be forgettable. So, why settle for uniqueness or innovation when you can bask in the glory of averageness with our Generic Product? Its the kind of purchase that makes you question your life choices but hey, at least it comes in a box!
                         </p>
 
                         <div className="product--page--prod--info">

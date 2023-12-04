@@ -40,7 +40,7 @@ export default function Header(props) {
 				<div className="logo--container">
 					{/* add just the name 'Shop.com/ burger menu on mobile/' on pc put logo */}
 					{/* <span className="material-icons business--logo">shopping_cart</span> */}
-					<h3>SHOP.COM</h3>
+					<h3>CASH SPLASH</h3>
 				</div>
 
 				<form onSubmit={props.searchSubmit} className="search--box--container">
