@@ -521,6 +521,7 @@ h2 {
 
 
 .product--page {
+	background-color: transparent;
 	display: flex;
 	flex-direction: column;
 	padding: 0.25rem;
@@ -686,7 +687,7 @@ main {
 }
 
 /* Adjustments for Small Devices */
-@media screen and (max-width: 600px) {
+@media (min-width: 200px) and (max-width: 600px) {
     header {
         flex-direction: column;
         align-items: center;
@@ -698,15 +699,19 @@ main {
 	}
 
     .toggle--buttons {
+		display: flex;
+        justify-content: space-around;
+		
         position: fixed;
         bottom: 0;
+		z-index: 10000;
+
         width: 100%;
         border-top: 0.1rem solid #cfcfcf;
         background-color: var(--clr--black);
         padding: 10px;
-        display: flex;
-        justify-content: space-around;
-        z-index: 10000;
+        
+        
     }
 
     .cart--button,
@@ -753,7 +758,6 @@ main {
     }
 
 	.footer {
-		/* padding: 0; */
 		justify-content: space-between;
 	}
 
@@ -833,7 +837,7 @@ main {
 }
 
 /* Adjustments for Extra Large Devices */
-@media screen and (min-width: 1201px) {
+@media (min-width: 1201px) {
     .product--page {
         width: 80%;
         right: 10%;

@@ -299,7 +299,6 @@ export default function Header(props) {
 									</div>
 								))}
 							</div>
-							{/* thinker line */}
 							<hr />
 
 							<section className="total--amount--section">

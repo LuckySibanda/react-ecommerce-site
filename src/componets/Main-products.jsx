@@ -91,18 +91,3 @@ MainBody.propTypes = {
 
 	ratingCount: PropTypes.number.isRequired,
 };
-
-
-
-
-
-
-
-// const YourComponent = ({ showCart, showWishlist })
-
-
-
-
-
-
-

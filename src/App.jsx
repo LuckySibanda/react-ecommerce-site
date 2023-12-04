@@ -289,6 +289,10 @@ export default function App() {
 
 
             {/* Unmounts product--grid when extra features are mounted to stop the user from scrolling */}
+
+
+
+            
             {submitted === true ? ((CartScroll || WishlistScroll || CheckoutScroll) ? (
             <>
                 <button className="close--button end--search--button" onClick={() => setSubmitted(false)}>End search
