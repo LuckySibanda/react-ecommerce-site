@@ -34,8 +34,6 @@ export default function Header(props) {
 		display: props.cartArray.length > 0 ? 'block' : 'none',
 	}
 
-	const sale = ((props.productPrice / 10) * 0.5).toFixed(2)
-
 	return (
 		<>
 			<header>
@@ -194,7 +192,7 @@ export default function Header(props) {
 								</div>
 
 
-								<div className="cart--count">{props.cartCount} Items</div>
+								<div className="cart--count">{props.cartCount} Item{props.cartCount > 1 ? 's' : ''}</div>
 
 								<div className="cart--product--list">
 									{props.cartArray.map((item) => (
@@ -294,7 +292,7 @@ export default function Header(props) {
 												</div>
 
 												<div className="checkout--product--quantity action--product--extras">
-													Items quantity: {item.quantity}
+													Items amount: {item.quantity}
 												</div>
 											</div>
 										</div>
