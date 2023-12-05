@@ -30,9 +30,6 @@ export default function Footer() {
 				<div>
 					All rights reserved. CASH SPLASH is not a registered entity.
 				</div>
-				<div>
-					Privacy: POPIA Act of 2020 Compliance
-				</div>
 			</div>
 		</section>
 
