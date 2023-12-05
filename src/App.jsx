@@ -128,7 +128,7 @@ export default function App() {
 	function showSearchResults() {
 		let searchItems = [];
 		productsData.map((item) => {
-			if (item.keywords.includes(searchValue.productSearch)) {
+			if (item.keywords.includes(searchValue.productSearch.toLowerCase())) {
 				searchItems.push(item);
 				setSearchResult(searchItems);
 			}

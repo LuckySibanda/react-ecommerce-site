@@ -556,7 +556,7 @@ h2 {
 .product--page--header {
   display: flex;
   justify-content: space-between;
-  padding: 0 3rem;
+  padding: 0 1.1rem;
   height: 30px;
   align-items: center;
 }
@@ -608,6 +608,7 @@ h2 {
 }
 
 .product--page--information {
+  margin-top: 0.625rem;
   padding: 0 1.1rem;
 }
 

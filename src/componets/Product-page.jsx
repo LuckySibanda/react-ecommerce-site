@@ -55,9 +55,8 @@ export default function ProductPage(props) {
                                 </span>
                             </button>
                         </div>
-
                         <p>
-                        Introducing the ultimate marvel of modern consumerism - our Generic Product! Crafted with the finest blend of mediocrity and unremarkable design, this product is the epitome of Meh. Imagine a world where excitement goes to die, and thats where our Generic Product shines. With a design so unassuming, its practically invisible in your daily life. It neither soars to great heights nor plummets to the depths of disappointment. Its the Goldilocks of products, just bland enough to be forgettable. So, why settle for uniqueness or innovation when you can bask in the glory of averageness with our Generic Product? Its the kind of purchase that makes you question your life choices but hey, at least it comes in a box!
+                            Meet our Generic Product, the epitome of Meh Crafted with the perfect blend of mediocrity and unremarkable design, its the Goldilocks of products, neither soaring to great heights nor plummeting to the depths of disappointment. In a world where excitement goes to die, our Generic Product shines, practically invisible in your daily life. Why settle for uniqueness or innovation when you can bask in the glory of averageness? Its the kind of purchase that makes you question life choices but hey, at least it comes in a box!
                         </p>
 
                         <div className="product--page--prod--info">
