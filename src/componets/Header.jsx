@@ -34,6 +34,8 @@ export default function Header(props) {
 		display: props.cartArray.length > 0 ? 'block' : 'none',
 	}
 
+	const sale = ((props.productPrice / 10) * 0.5).toFixed(2)
+
 	return (
 		<>
 			<header>
@@ -140,7 +142,7 @@ export default function Header(props) {
 
 											<div className="wishlist--product--price action--product--extras">
 												{/* R {item.productPrice} */}
-												R {(Number(item.productPrice) / 10).toFixed(2)}
+												R {(Number(item.productPrice * 0.5) / 10).toFixed(2)}
 											</div>
 										</div>
 									))}
@@ -213,7 +215,7 @@ export default function Header(props) {
 
 													<div className="cart--product--price action--product--extras">
 														{/* R {item.productPrice} */}
-														R {(Number(item.productPrice) / 10).toFixed(2)}
+														R {(Number(item.productPrice * 0.5) / 10).toFixed(2)}
 													</div>
 
 													<div className="cart--product--quantity action--product--extras">
@@ -288,7 +290,7 @@ export default function Header(props) {
 
 												<div className="checkout--product--price action--product--extras">
 													{/* {item.productPrice} */}
-													R {(Number(item.productPrice) / 10).toFixed(2)}
+													R {(Number(item.productPrice * 0.5) / 10).toFixed(2)}
 												</div>
 
 												<div className="checkout--product--quantity action--product--extras">
